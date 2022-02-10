@@ -1,0 +1,23 @@
+.productContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.imageContainer{
+    flex: 1;
+}
+
+.textContent{
+    flex:1;
+    padding-left: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.image{
+    object-fit: contain;
+    object-position: center;
+    align-items: center;
+}

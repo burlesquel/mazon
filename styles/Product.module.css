@@ -1,0 +1,24 @@
+.productContainer{
+    width: 250rem;
+    height: 380rem;
+    border: pink 2px solid;
+    margin-bottom: 10rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.productNameContainer{
+    flex:1
+}
+
+.imageContainer{
+    flex:4
+}
+
+.descriptionContainer{
+    flex: 2;
+}

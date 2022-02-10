@@ -1,0 +1,44 @@
+.footer{
+    border: 2px black solid;
+}
+
+.navbar{
+    border: 2px black solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 10rem;
+}
+
+.linksdiv{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.linksdiv > *{
+    cursor: pointer;
+}
+
+.logodiv{
+    flex: 1;
+    margin-left: 5rem;
+}
+
+.logo{
+    object-position: left;
+    object-fit: contain;
+    width: 100%;
+}
+
+@media screen and (max-width: 992px) {
+    .navbar {
+      flex-direction: column;
+    }
+    .linksdiv > *{
+        margin-top: 10rem;
+        margin-bottom: 10rem;
+    }
+  }
