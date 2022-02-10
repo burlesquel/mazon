@@ -8,7 +8,7 @@ export default function Layout({ children }) {
         <section>
             <navbar className={styles.navbar}>
                 <div className={styles.logodiv}>
-                    <Image className={styles.logo} src={"/../public/logos/Logo-withoutbg-blackwithtext.png"} layout="responsive" width={250} height={50}/>
+                    <Image alt="image" className={styles.logo} src={"/../public/logos/Logo-withoutbg-blackwithtext.png"} layout="responsive" width={250} height={50}/>
                 </div>
                 <div className={styles.linksdiv}>
                 <Link href={"./about"}><h3>About</h3></Link>

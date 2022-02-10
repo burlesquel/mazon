@@ -7,7 +7,7 @@ export default function Product({ product }) {
   return (
     <div className={styles.productContainer}>
       <div className={styles.imageContainer}>
-         <Image className={styles.image} src={product.image_url} width={1000} height={1000} fill="responsive" /> 
+         <Image alt="image" className={styles.image} src={product.image_url} width={1000} height={1000} fill="responsive" /> 
       </div>
       <div className={styles.textContent}>
         <h1>{product.name}</h1>
