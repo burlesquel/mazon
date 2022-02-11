@@ -17,7 +17,6 @@ import styles from "../styles/Products.module.css"
 // }
 
 export async function getServerSideProps() {
-  const id = params.id
   const products = await fetch(`https://mazon-server.herokuapp.com/data`).then(r => r.json())
   return {
     props: {
