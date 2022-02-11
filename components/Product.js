@@ -23,15 +23,6 @@ export default function Product({ product }) {
                 <p>{product.description}</p>
             </div>
 
-            <div>
-                <p>Brand:{product.brand}</p>
-            </div>
-
-            <div>
-                <p>Stock:{product.stock.quantity}</p>
-            </div>
-
-
         </section>
         
         </Link>
