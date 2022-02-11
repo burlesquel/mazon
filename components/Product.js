@@ -12,7 +12,7 @@ export default function Product({ product }) {
         <section className={styles.productContainer}>
 
             <div className={styles.productNameContainer}>
-                <h2>{product.name}</h2>
+                <h2>Name:{product.name}</h2>
             </div>
 
             <div className={styles.imageContainer}>
@@ -22,6 +22,15 @@ export default function Product({ product }) {
             <div className={styles.descriptionContainer}>
                 <p>{product.description}</p>
             </div>
+
+            <div>
+                <p>Brand:{product.brand}</p>
+            </div>
+
+            <div>
+                <p>Stock:{product.stock.quantity}</p>
+            </div>
+
 
         </section>
         
