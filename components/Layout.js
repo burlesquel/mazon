@@ -11,9 +11,9 @@ export default function Layout({ children }) {
                     <Image alt="image" className={styles.logo} src={"https://i.ibb.co/nDmVdY3/Logo-withoutbg-blackwithtext.png"} layout="responsive" width={250} height={50}/>
                 </div>
                 <div className={styles.linksdiv}>
-                <Link href={"./"}><h3>Index</h3></Link>
-                <Link href={"./products"}><h3>Products</h3></Link>
-                <Link href={"./new_product"}><h3>Create New Product</h3></Link>
+                <Link href={"/"}><h3>Index</h3></Link>
+                <Link href={"/products"}><h3>Products</h3></Link>
+                <Link href={"/new_product"}><h3>Create New Product</h3></Link>
                 </div>
                 
             </navbar>
