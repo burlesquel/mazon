@@ -1,7 +1,7 @@
 const { Product } = require("../data-management/product")
 const { generateId, uploadImage } = require("../data-management/addProduct")
 const axios = require("axios")
-
+import { useRouter } from 'next/router';
 
 const addProduct = async (event) => {
     await event.preventDefault(); // event.target.xxx.value 
@@ -18,7 +18,9 @@ const addProduct = async (event) => {
 
     console.log(product_);
 
-    await axios.post('https://mazon-server.herokuapp.com/addproduct', product_);
+    axios.post('https://mazon-server.herokuapp.com/addproduct', product_).then(res=>{
+        useRouter(`/product/${id}`)
+    })
 
 };
 
