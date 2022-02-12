@@ -4,9 +4,12 @@ const axios = require("axios")
 import { useRouter } from 'next/router';
 
 
-const addProduct = async (event) => {
+const addProduct = async (event, router) => {
     await event.preventDefault(); // event.target.xxx.value 
     const { name, description, price, category, stock, brand, storeName, image } = await event.target
+
+    console.log(name, description, price, category, stock, brand, storeName, image);
+
     const id = generateId(8)
 
     const imageFile = await image.files[0]
@@ -19,8 +22,8 @@ const addProduct = async (event) => {
 
     console.log(product_);
 
-    axios.post('https://mazon-server.herokuapp.com/addproduct', product_).then(res=>{
-        const router = useRouter()    
+    await axios.post('https://mazon-server.herokuapp.com/addproduct', product_).then(res=>{ 
+        console.log(res); 
         router.push(`/product/${id}`)
     })
 
@@ -28,12 +31,16 @@ const addProduct = async (event) => {
 
 export default function Home() {
 
+    const router = useRouter()  
+
     return (
         <div>
 
             <h1>ADD PRODUCT</h1>
 
-            <form method="post" onSubmit={addProduct}>
+            <form method="post" onSubmit={()=>{
+                addProduct(event, router)
+                }}>
                 <div>
                     <label htmlFor="name">Name</label>
                     <input id="name" name="name" type="text" autoComplete="name" required />
