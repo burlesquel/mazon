@@ -9,8 +9,8 @@ import { useContext, useEffect, useState } from "react"
 
 export default function Layout({ children }) {
 
-    const value = useContext(AuthContext) // determined value in authcontext provider as props
-    console.log(value);
+    const context = useContext(AuthContext) // determined value in authcontext provider as props
+    console.log(context);
 
     return (
         <section>
@@ -23,7 +23,8 @@ export default function Layout({ children }) {
                     <Link href={"/"}><h3>Index</h3></Link>
                     <Link href={"/products"}><h3>Products</h3></Link>
                     <Link href={"/new_product"}><h3>Create New Product</h3></Link>
-                    <a onClick={()=>{value.login()}}>LOGIN</a>
+                    <a onClick={()=>{context.login()}}>LOGIN</a>
+                    <a onClick={()=>{context.logout()}}>LOG OUT</a>
                 </div>
             </navbar>
 

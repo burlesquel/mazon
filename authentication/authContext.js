@@ -16,8 +16,8 @@ export const AuthContextProvider = ({ children }) => {
             setUser(user)
             netlifyIdentity.close()
             console.log("Logged in.", user);
-            
         })
+
         // init netlify identity connection
         netlifyIdentity.init()
     },[])
