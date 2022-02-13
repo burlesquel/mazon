@@ -11,7 +11,7 @@ export default function Layout({ children }) {
 
     const value = useContext(AuthContext) // determined value in authcontext provider as props
     console.log(value);
-    
+
     return (
         <section>
 
@@ -23,6 +23,7 @@ export default function Layout({ children }) {
                     <Link href={"/"}><h3>Index</h3></Link>
                     <Link href={"/products"}><h3>Products</h3></Link>
                     <Link href={"/new_product"}><h3>Create New Product</h3></Link>
+                    <a onClick={value.login()}>LOGIN</a>
                 </div>
             </navbar>
 
