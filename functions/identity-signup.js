@@ -1,12 +1,16 @@
+const {addUser} = require("../data-management/addProduct")
+
 exports.handler = async (event, context, callback) => {
 
     console.log(chalk.red("hook triggered"))
+
+    addUser()
 
     try {
 
         return {
             statusCode: 200,
-            body: JSON.stringify(responseBody),
+            body: JSON.stringify({status_: "success"}),
         }
     }
 
