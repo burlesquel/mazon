@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react"
 import netlifyIdentity from "netlify-identity-widget"
+const axios = require("axios")
 
 const AuthContext = createContext()
 
@@ -22,6 +23,8 @@ export const AuthContextProvider = ({ children }) => {
         netlifyIdentity.on("init",()=>{
             setAuthReady(true)
         })
+
+        
 
         // init netlify identity connection
         netlifyIdentity.init()
