@@ -24,6 +24,7 @@ export const AuthContextProvider = ({ children }) => {
             setAuthReady(true)
         })
 
+        netlifyIdentity.on()
         
 
         // init netlify identity connection

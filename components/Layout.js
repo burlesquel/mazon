@@ -9,7 +9,7 @@ import { useContext } from "react"
 
 export default function Layout({ children }) {
     const context = useContext(AuthContext) // determined value in authcontext provider as props
-    console.log(context);
+    console.log(context.user);
 
     return (
         <section>
