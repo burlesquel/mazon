@@ -1,5 +1,7 @@
 import { createContext, useState, useEffect } from "react"
 import netlifyIdentity from "netlify-identity-widget"
+import { addUser } from "../data-management/addUser"
+
 const axios = require("axios")
 
 const AuthContext = createContext()
@@ -8,48 +10,49 @@ export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [authReady, setAuthReady] = useState(false)
 
-    useEffect(()=>{
-        netlifyIdentity.on("login",(user)=>{
+    useEffect(() => {
+        netlifyIdentity.on("login", (user) => {
             setUser(user)
             netlifyIdentity.close()
             console.log("Logged in.", user);
+            addUser(context.user) // CHECKS IF USER IS ALREADY REGISTERED VIA A JSON FILE, SENDS USER DATA TO SERVER IF NOT
         })
 
-        netlifyIdentity.on("logout",()=>{
+        netlifyIdentity.on("logout", () => {
             setUser(null)
             console.log("Logged out", user);
         })
 
-        netlifyIdentity.on("init",()=>{
+        netlifyIdentity.on("init", () => {
             setAuthReady(true)
         })
 
         netlifyIdentity.on()
-        
+
 
         // init netlify identity connection
         netlifyIdentity.init()
 
-        return () =>{
+        return () => {
             netlifyIdentity.off("login")
             netlifyIdentity.off("logout")
         }
-    },[])
+    }, [])
 
-    const login = ()=>{
+    const login = () => {
         netlifyIdentity.open()
     }
 
-    const logout = ()=>{
+    const logout = () => {
         netlifyIdentity.logout()
 
     }
 
     const context = {
-        user:user,
+        user: user,
         login: login,
         logout: logout,
-        authReady:authReady
+        authReady: authReady
     }
 
     return (

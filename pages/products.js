@@ -4,19 +4,8 @@ import Product from "../components/Product"
 import styles from "../styles/Products.module.css"
 
 
-// export const getStaticProps = async () => {
-
-//   const res = await fetch("https://mazon-server.herokuapp.com/data")
-//   const data = await res.json()
-
-//   return {
-//     props: {
-//       products: data
-//     }
-//   }
-// }
-
 export async function getServerSideProps() {
+
   const products = await fetch(`https://mazon-server.herokuapp.com/data`).then(r => r.json())
   return {
     props: {
