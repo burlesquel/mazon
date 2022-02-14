@@ -14,7 +14,7 @@ const addUser = async (user) => {
     else {
         const res = await axios({ // ADD NEW USER TO DATABASE WITH SENDING POST REQUEST TO MAIN SERVER
             method: 'post',
-            url: 'http://localhost:8000/adduser',
+            url: 'https://mazon-server.herokuapp.com/adduser',
             data: user
         })
         fs.writeFileSync("isRegistered.json", JSON.stringify({ userIsRegistered: true })) // SET USERISREGISTERED TO TRUE SO DONT HAVE TO REGISTER AGAIN
