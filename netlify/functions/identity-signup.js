@@ -1,4 +1,5 @@
-import axios from "axios"
+// const fetch = require('node-fetch')
+const axios = require("axios")
 
 class User{
     constructor(id, email, name, role, confirmation_done_at){
