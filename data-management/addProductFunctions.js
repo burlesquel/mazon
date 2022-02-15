@@ -1,6 +1,6 @@
 const axios = require("axios")
 
-const imgbbPostLink = "https://api.imgbb.com/1/upload&key=c0da0fd8e2f81e366f0e06c96e60c889"
+// const imgbbPostLink = "https://api.imgbb.com/1/upload&key=c0da0fd8e2f81e366f0e06c96e60c889"
 
 const generateId = (_length) => {
     return Math.random().toString(36).substr(2, _length);

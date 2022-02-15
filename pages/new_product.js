@@ -1,5 +1,5 @@
 const { Product } = require("../data-management/product")
-const { generateId, uploadImage } = require("../data-management/addProduct")
+const { generateId, uploadImage } = require("../data-management/addProductFunctions")
 const axios = require("axios")
 import { useRouter } from 'next/router';
 import { useContext } from "react"
@@ -24,7 +24,7 @@ const addProduct = async (event, router) => {
 
     console.log(product_);
 
-    await axios.post('https://mazon-server.herokuapp.com/addproduct', product_).then(res=>{ 
+    await axios.post('http://localhost:8000/addproduct', product_).then(res=>{ 
         console.log(res); 
         router.push(`/product/${id}`)
     })

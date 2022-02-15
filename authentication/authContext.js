@@ -15,7 +15,6 @@ export const AuthContextProvider = ({ children }) => {
             setUser(user)
             netlifyIdentity.close()
             console.log("Logged in.", user);
-            addUser(context.user) // CHECKS IF USER IS ALREADY REGISTERED VIA A JSON FILE, SENDS USER DATA TO SERVER IF NOT
         })
 
         netlifyIdentity.on("logout", () => {
