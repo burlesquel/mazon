@@ -21,7 +21,7 @@ export default function Layout({ children }) {
 
                 {context.authReady ? (  // IF THE PAGE IS LOADING AND DONT KNOW IF THE USER LOGGED IN OR NOT, DO NOT RENDER THE NAVBAR
                     <div className={styles.linksdiv}>
-                        <Link href={"/"}><h3>Index</h3></Link>
+                        <Link href={"/"}><h3>Main Page</h3></Link>
                         <Link href={"/products"}><h3>Products</h3></Link>
                         {context.user ? <Link href={"/my_store"}><h3>My Store</h3></Link> : null}
                         {context.user ? null : <a onClick={context.login}>LOGIN/SIGN IN</a>}
