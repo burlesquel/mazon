@@ -6,7 +6,7 @@ exports.handler = async (event) => {
     console.log(user);
     await addUser(user)
     return {
-        statusCode: 200,
+        statusCode: 200 ,
         body: JSON.stringify({
             app_metadata: {
                 roles: ["basic user"]
