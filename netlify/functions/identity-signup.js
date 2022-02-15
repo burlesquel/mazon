@@ -1,4 +1,4 @@
-const axios = require('axios')
+
 
 
 class User {
@@ -28,14 +28,11 @@ const addUser = async (user) => {
 
 exports.handler = async function (event) {
 
-    try {
         const { user } = JSON.parse(event.body)
         console.log(user);
         await addUser(user)
         return {
             statusCode: 200,
         };
-    } catch (err) {
-        return { statusCode: 500, body: err.toString() };
-    }
+
 }
