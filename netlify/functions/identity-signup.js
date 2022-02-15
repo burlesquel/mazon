@@ -1,8 +1,8 @@
-// const fetch = require('node-fetch')
-const axios = require("axios")
+const axios = require('axios')
 
-class User{
-    constructor(id, email, name, role, confirmation_done_at){
+
+class User {
+    constructor(id, email, name, role, confirmation_done_at) {
         this.id = id
         this.email = email
         this.name = name
@@ -26,8 +26,8 @@ const addUser = async (user) => {
 
 
 
-export async function handler(event, context) {
-    
+exports.handler = async function (event) {
+
     try {
         const { user } = JSON.parse(event.body)
         console.log(user);
