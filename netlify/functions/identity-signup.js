@@ -1,17 +1,14 @@
-const {addUser} = require("../../data-management/addUser")
+import { addUser } from "../../data-management/addUser";
 
-exports.handler = async (event) => {
-
-    const { user } = JSON.parse(event.body)
-    console.log(user);
-    await addUser(user)
-    return {
-        statusCode: 200 ,
-        body: JSON.stringify({
-            app_metadata: {
-                roles: ["basic user"]
-            }
-        })
+export async function handler(event, context) {
+    try {
+        const { user } = JSON.parse(event.body)
+        console.log(user);
+        await addUser(user)
+        return {
+            statusCode: 200,
+        };
+    } catch (err) {
+        return { statusCode: 500, body: err.toString() };
     }
-
 }
