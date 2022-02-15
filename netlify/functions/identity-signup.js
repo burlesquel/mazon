@@ -4,7 +4,7 @@ exports.handler = async (event) => {
 
     const { user } = JSON.parse(event.body)
     console.log(user);
-    addUser(user)
+    await addUser(user)
     return {
         statusCode: 200,
         body: JSON.stringify({
