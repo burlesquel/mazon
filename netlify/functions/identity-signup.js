@@ -1,6 +1,7 @@
-import { addUser } from "../../data-management/addUser";
+
 
 export async function handler(event, context) {
+    import { addUser } from "../../data-management/addUser";
     try {
         const { user } = JSON.parse(event.body)
         console.log(user);
