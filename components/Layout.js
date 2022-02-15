@@ -23,7 +23,7 @@ export default function Layout({ children }) {
                     <div className={styles.linksdiv}>
                         <Link href={"/"}><h3>Index</h3></Link>
                         <Link href={"/products"}><h3>Products</h3></Link>
-                        {context.user ? <Link href={"/new_product"}><h3>Create New Product</h3></Link> : null}
+                        {context.user ? <Link href={"/my_store"}><h3>My Store</h3></Link> : null}
                         {context.user ? null : <a onClick={context.login}>LOGIN/SIGN IN</a>}
                         {context.user ? <a onClick={context.logout}>LOG OUT</a> : null}
                     </div>
