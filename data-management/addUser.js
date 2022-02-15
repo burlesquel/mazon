@@ -6,7 +6,6 @@ const addUser = async (user) => {
             url: 'http://localhost:8000/adduser',
             data: user
         })
-        fs.writeFileSync("isRegistered.json", JSON.stringify({ userIsRegistered: true })) // SET USERISREGISTERED TO TRUE SO DONT HAVE TO REGISTER AGAIN
 }
 
 
