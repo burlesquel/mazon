@@ -24,7 +24,7 @@ const addProduct = async (event, router) => {
 
     console.log(product_);
 
-    await axios.post('http://localhost:8000/addproduct', product_).then(res=>{ 
+    await axios.post('https://mazon-server.herokuapp.com/addproduct', product_).then(res=>{ 
         console.log(res); 
         router.push(`/product/${id}`)
     })
