@@ -1,5 +1,4 @@
-const { Product } = require("../data-management/product")
-const { generateId, uploadImage } = require("../data-management/addProductFunctions")
+import Link from "next/link"
 const axios = require("axios")
 import { useRouter } from 'next/router';
 import { useContext } from "react"
