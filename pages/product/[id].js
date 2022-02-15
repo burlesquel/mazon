@@ -19,8 +19,6 @@ export default function Product({ product }) {
         <p>Stock:{product.stock.quantity}</p>
 
       </div>
-
-
     </div>
   )
 }

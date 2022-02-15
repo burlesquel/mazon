@@ -20,10 +20,10 @@ export default function Products({ products }) {
   const [searchValue, setSearchValue] = useState(null)
   return (
     <>
+    <section className={styles.upperNavSection}> Upper navbar </section>
       <div>
 
-        <h1>Category PAGE</h1>
-        <h2>Find product</h2>
+        <h2>Search product</h2>
         <input onChange={(val) => { setSearchValue(val.target.value) }} type={"search"} placeholder="Product id" />
         <button onClick={() => { router.push(`/product/${searchValue}`) }}>Search</button>
 

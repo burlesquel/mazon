@@ -16,7 +16,8 @@ export default function Layout({ children }) {
 
             <navbar className={styles.navbar}>
                 <div className={styles.logodiv}>
-                    <Image alt="image" className={styles.logo} src={"https://i.ibb.co/nDmVdY3/Logo-withoutbg-blackwithtext.png"} layout="responsive" width={250} height={50} />
+                <Link href={"/"}><Image alt="image" className={styles.logo} src={"https://i.ibb.co/bWCxJwK/Mazon-logos-transparent.png"} layout="fill" width={976} height={373} /></Link>
+                    
                 </div>
 
                 {context.authReady ? (  // IF THE PAGE IS LOADING AND DONT KNOW IF THE USER LOGGED IN OR NOT, DO NOT RENDER THE NAVBAR
