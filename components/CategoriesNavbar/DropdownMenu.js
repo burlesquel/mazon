@@ -2,13 +2,13 @@ import styles from "../../styles/DropdownMenu.module.css"
 import { useState } from 'react'
 import Link from "next/link"
 var key = 0
-export default function DropDown({ title, links }) {  // links = [{name:"name", href:"href"}]
+export default function DropDown({ title, mainCategoryHref, links }) {  // links = [{name:"name", href:"href"}]
   const [open, setOpen] = useState(false)
   return (
     <div className={styles.main} onMouseEnter={()=>{setOpen(true)}} onMouseLeave={()=>{setOpen(false)}}>
 
       <div className={styles.title} >
-        <a>{title}</a>
+        <Link href={mainCategoryHref}>{title}</Link>
       </div>
 
 

@@ -47,15 +47,41 @@ const EULinks = [
     },
   ]
   
+  const LP = [
+    {
+      name:"Processor",
+      href:"/category/laptop/processors"
+    },
+    {
+      name:"RAM",
+      href:"/category/laptop/ram"
+    },
+    {
+      name:"Graphic Cards",
+      href:"/category/laptop/graphic-cards"
+    },
+    {
+      name:"Motherboards",
+      href:"/category/laptop/motherboards"
+    },
+    {
+      name:"Power",
+      href:"/category/laptop/power"
+    },
+    {
+      name:"BIOS Chips",
+      href:"/category/laptop/bios-chips"
+    },
+  ]
 
 
 export default function CategoriesNavbar(){
     return (
         <section className={styles.upperNavSection}>
-            <DropDown title={"External Utilities"} links={EULinks} />
-            <DropDown title={"Motherboard"} links={MBLinks} />
-            <DropDown title={"Laptop Parts"} />
-            <DropDown title={"Monitors"} />
+            <DropDown title={"External Utilities"} mainCategoryHref="/category/external-utilities" links={EULinks} />
+            <DropDown title={"Motherboard"} mainCategoryHref="/category/motherboard" links={MBLinks} />
+            <DropDown title={"Laptop Parts"} mainCategoryHref="/category/laptop" links={LP} />
+            <DropDown title={"Monitors"} mainCategoryHref="/category/monitors" links={[]} />
         </section>
     )
 }
