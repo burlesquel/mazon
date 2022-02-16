@@ -23,7 +23,7 @@ const EULinks = [
   const MBLinks = [
     {
       name:"Processor",
-      href:"/category/motherboard/processors"
+      href:"/category/motherboard/processor"
     },
     {
       name:"RAM",
@@ -50,7 +50,7 @@ const EULinks = [
   const LP = [
     {
       name:"Processor",
-      href:"/category/laptop/processors"
+      href:"/category/laptop/processor"
     },
     {
       name:"RAM",
