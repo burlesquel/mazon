@@ -2,6 +2,33 @@ const axios = require("axios")
 
 // const imgbbPostLink = "https://api.imgbb.com/1/upload&key=c0da0fd8e2f81e366f0e06c96e60c889"
 
+class Product{
+  constructor(id, name, description, isItDiscounted, discountAmount, priceWithoutDiscount, isInStock, quantity, brand, category,subcategory, storeName, storeUrl, imgUrl ){
+      this.id = id
+      this.name = name
+      this.description = description
+      this.price = {
+          "discounted":isItDiscounted,
+          "discount":discountAmount,
+          "price_without_discount":priceWithoutDiscount,
+          "total_price": priceWithoutDiscount - discountAmount,
+        }
+        this.stock = {
+          "in_stock":isInStock,
+          "quantity":quantity
+        }
+        this.brand = brand
+        this.category = category
+        this.subcategory = subcategory
+        this.store = {
+          "name":storeName,
+          "url":storeUrl
+        }
+        this.image_url = imgUrl
+  }
+}
+
+
 const generateId = (_length) => {
     return Math.random().toString(36).substr(2, _length);
 };
@@ -19,5 +46,5 @@ function uploadImage(img) {
   }
 
   module.exports = {
-    generateId, uploadImage
+    generateId, uploadImage, Product
 } 
