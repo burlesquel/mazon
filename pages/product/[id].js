@@ -12,6 +12,7 @@ export default function Product({ product }) {
       <div className={styles.textContent}>
         
         <h1>{product.name}</h1>
+        <p>{product.category}</p> / <p>{product.subcategory}</p>
         <h3>Store: {product.store.name}</h3>
         <p>{product.description}</p>
         <h2>Price: ${product.price.total_price}</h2>
