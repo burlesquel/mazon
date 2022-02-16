@@ -1,11 +1,15 @@
 import Image from "next/image"
 import styles from "../../styles/[id].module.css"
+import CategoriesNavbar from "../../components/CategoriesNavbar/CategoriesNavbar"
 
 export default function Product({ product }) {
 
 
   return (
-    <div className={styles.productContainer}>
+    <div>
+      <CategoriesNavbar/>
+      <div className={styles.productContainer}>
+      
       <div className={styles.imageContainer}>
         <Image alt="image" className={styles.image} src={product.image_url} width={1000} height={1000} fill="responsive" />
       </div>
@@ -21,6 +25,8 @@ export default function Product({ product }) {
 
       </div>
     </div>
+    </div>
+
   )
 }
 

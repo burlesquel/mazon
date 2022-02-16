@@ -1,14 +1,19 @@
 import Product from "../../components/Product"
 import styles from "../../styles/[category].module.css"
+import CategoriesNavbar from "../../components/CategoriesNavbar/CategoriesNavbar";
 
 export default function Category({ products }) {
 
   console.log(products);
 
   return (
-    <div className={styles.productsContainer}>
+    <div>
+      <CategoriesNavbar/>
+      <div className={styles.productsContainer}>
       {products.map((product) => <Product key={product.id} product={product} />)}
     </div>
+    </div>
+
   )
 }
 
