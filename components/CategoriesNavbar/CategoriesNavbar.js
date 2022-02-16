@@ -79,7 +79,7 @@ export default function CategoriesNavbar(){
     return (
         <section className={styles.upperNavSection}>
             <DropDown title={"External Utilities"} mainCategoryHref="/category/external-utilities" links={EULinks} />
-            <DropDown title={"Motherboard"} mainCategoryHref="/category/motherboard" links={MBLinks} />
+            <DropDown title={"Desktop Parts"} mainCategoryHref="/category/motherboard" links={MBLinks} />
             <DropDown title={"Laptop Parts"} mainCategoryHref="/category/laptop" links={LP} />
             <DropDown title={"Monitors"} mainCategoryHref="/category/monitors" links={[]} />
         </section>
