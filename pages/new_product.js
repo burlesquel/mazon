@@ -29,7 +29,7 @@ const addProduct = async (event, router) => {
 const categoryStructure = {
     "external-utilities":["keyboards","printers","mouse","speakers"],
     "motherboard":["processor","ram","graphic-cards","motherboards","power", "bios-chips"],
-    "laptop-parts":["processor","ram","graphic-cards","motherboards","power", "bios-chips"],
+    "laptop":["processor","ram","graphic-cards","motherboards","power", "bios-chips"],
     "monitors":[]
 }
 
