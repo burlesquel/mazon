@@ -26,6 +26,11 @@ export async function getServerSideProps({ params }) {
     const mainCategory = category[0]
     const subCategory = category[1]
     const products = await fetch(`https://mazon-server.herokuapp.com/category/?category=${mainCategory}&subcategory=${subCategory}`).then(r => r.json())
+    return {
+      props: {
+        products
+      }
+    }
   }
   else{
     // DO NOTHING
