@@ -23,27 +23,27 @@ const EULinks = [
   const MBLinks = [
     {
       name:"Processor",
-      href:"/category/external-utilities/processors"
+      href:"/category/motherboard/processors"
     },
     {
       name:"RAM",
-      href:"/category/external-utilities/ram"
+      href:"/category/motherboard/ram"
     },
     {
       name:"Graphic Cards",
-      href:"/category/external-utilities/graphic-cards"
+      href:"/category/motherboard/graphic-cards"
     },
     {
       name:"Motherboards",
-      href:"/category/external-utilities/motherboards"
+      href:"/category/motherboard/motherboards"
     },
     {
       name:"Power",
-      href:"/category/external-utilities/power"
+      href:"/category/motherboard/power"
     },
     {
       name:"BIOS Chips",
-      href:"/category/external-utilities/bios-chips"
+      href:"/category/motherboard/bios-chips"
     },
   ]
   
