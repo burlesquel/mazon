@@ -33,6 +33,10 @@
     flex: 1;
     margin-left: 5rem;
     position: relative;
+    align-items: center;
+    object-position: center;
+    justify-content:center;
+    align-content:center
 }
 
 .logo{
@@ -49,5 +53,14 @@
     .linksdiv > *{
         margin-top: 10rem;
         margin-bottom: 10rem;
+    }
+    .logo{
+        object-position: center;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .linksdiv{
+        flex-direction:column
     }
   }

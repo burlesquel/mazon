@@ -1,5 +1,5 @@
 class Product{
-    constructor(id, name, description, isItDiscounted, discountAmount, priceWithoutDiscount, isInStock, quantity, brand, category, storeName, storeUrl, imgUrl ){
+    constructor(id, name, description, isItDiscounted, discountAmount, priceWithoutDiscount, isInStock, quantity, brand, category,subcategory, storeName, storeUrl, imgUrl ){
         this.id = id
         this.name = name
         this.description = description
@@ -15,6 +15,7 @@ class Product{
           }
           this.brand = brand
           this.category = category
+          this.subcategory = subcategory
           this.store = {
             "name":storeName,
             "url":storeUrl

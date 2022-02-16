@@ -2,7 +2,6 @@
 import Link from "next/link"
 import Image from "next/image"
 import styles from "../styles/Layout.module.css"
-
 import AuthContext from "../authentication/authContext"
 import { useContext } from "react"
 
@@ -16,8 +15,7 @@ export default function Layout({ children }) {
 
             <navbar className={styles.navbar}>
                 <div className={styles.logodiv}>
-                <Link href={"/"}><Image alt="image" className={styles.logo} src={"https://i.ibb.co/bWCxJwK/Mazon-logos-transparent.png"} layout="fill" width={976} height={373} /></Link>
-                    
+                    <Link href={"/"}><Image alt="image" className={styles.logo} src={"https://i.ibb.co/bWCxJwK/Mazon-logos-transparent.png"} layout="fill"/></Link>
                 </div>
 
                 {context.authReady ? (  // IF THE PAGE IS LOADING AND DONT KNOW IF THE USER LOGGED IN OR NOT, DO NOT RENDER THE NAVBAR

@@ -8,19 +8,13 @@ import AuthContext from '../authentication/authContext';
 
 const addProduct = async (event, router) => {
     await event.preventDefault(); // event.target.xxx.value 
-    const { name, description, price, category, stock, brand, storeName, image } = await event.target
-
-    console.log(name, description, price, category, stock, brand, storeName, image);
-
+    const { name, description, price, category, subcategory, stock, brand, storeName, image } = await event.target
+    console.log(name, description, price, category, subcategory, stock, brand, storeName, image);
     const id = generateId(8)
-
     const imageFile = await image.files[0]
-
     const res = await uploadImage(imageFile)
-
     const imgUrl = await res.data.data.display_url
-
-    const product_ = new Product(id, name.value, description.value, false, 0, Number(price.value), true, Number(stock.value) , brand.value, category.value, storeName.value, "anan.am.com", imgUrl)
+    const product_ = new Product(id, name.value, description.value, false, 0, Number(price.value), true, Number(stock.value) , brand.value, category.value, subcategory.value, storeName.value, "anan.am.com", imgUrl)
 
     console.log(product_);
 
@@ -63,6 +57,11 @@ export default function Home() {
                     <div>
                         <label htmlFor="category">Category</label>
                         <input id="category" name="category" type="text" autoComplete="category" required />
+                    </div>
+
+                    <div>
+                        <label htmlFor="subcategory">Subcategory</label>
+                        <input id="subcategory" name="subcategory" type="text" autoComplete="subcategory" required />
                     </div>
     
                     <div>
