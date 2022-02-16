@@ -1,4 +1,5 @@
 import DropDown from "./DropdownMenu"
+import styles from "../../styles/DropdownMenu.module.css"
 
 const EULinks = [
     {
@@ -48,7 +49,7 @@ const EULinks = [
   
 
 
-export default CategoriesNavbar = () => {
+export default function CategoriesNavbar(){
     return (
         <section className={styles.upperNavSection}>
             <DropDown title={"External Utilities"} links={EULinks} />

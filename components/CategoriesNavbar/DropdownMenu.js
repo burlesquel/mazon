@@ -1,4 +1,4 @@
-import styles from "../styles/DropdownMenu.module.css"
+import styles from "../../styles/DropdownMenu.module.css"
 import { useState } from 'react'
 import Link from "next/link"
 var key = 0

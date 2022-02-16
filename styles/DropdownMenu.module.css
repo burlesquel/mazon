@@ -1,3 +1,12 @@
+.upperNavSection{
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    flex-direction: row;
+    border-bottom: 1px black solid;
+}
+
 .title{
     border: 2px black solid;
     cursor: pointer;
