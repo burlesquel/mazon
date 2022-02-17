@@ -12,15 +12,19 @@ export default function Product({ product }) {
         <section className={styles.productContainer}>
 
             <div className={styles.productNameContainer}>
-                <h2>Name:{product.name}</h2>
+                <h2>{product.name}</h2>
             </div>
 
             <div className={styles.imageContainer}>
-                <Image className={styles.image} src={product.image_url} width="200" height="200" fill="responsive"/>
+             <Image className={styles.image} src={product.image_url} objectFit="contain" layout="fill"/>
             </div>
 
             <div className={styles.descriptionContainer}>
                 <p>{product.description}</p>
+            </div>
+
+            <div className={styles.priceContainer}>
+                <p>${product.price.total_price}</p>
             </div>
 
         </section>

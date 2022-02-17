@@ -6,4 +6,9 @@
     flex-flow:wrap ;
     align-items:flex-start;
     align-content: flex-start;
+    background-color: beige;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 13rem;
+    padding-top: 40rem;
 }

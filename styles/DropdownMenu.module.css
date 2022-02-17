@@ -1,5 +1,5 @@
 .main{
-    z-index: 2
+    z-index: 2;
 }
 
 .upperNavSection{
@@ -9,16 +9,18 @@
     justify-content: space-around;
     flex-direction: row;
     border-bottom: 1px black solid;
+    padding: 3rem;
+    background-color: beige;
 }
 
 .title{
-    border: 2px black solid;
     cursor: pointer;
     user-select: none;
+    font-weight: bold;
 }
 
 .dropdown{
-    position: absolute;
+    position: absolute; 
     background-color: aliceblue;
     border: 2px black solid;
     display: flex;
@@ -26,14 +28,12 @@
     border-bottom-left-radius: 10rem;
     border-bottom-right-radius: 10rem;
     overflow: hidden;
-
 }
 
 .dropdown > *{
     cursor: pointer;
     user-select: none;
     padding: 5rem;
-
 }
 
 .dropdown > *:hover{

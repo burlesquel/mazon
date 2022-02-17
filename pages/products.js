@@ -25,13 +25,13 @@ export default function Products({ products }) {
     <>
       <CategoriesNavbar/>
 
-      <div>
+      {/* <div>
 
         <h2>Search product</h2>
         <input onChange={(val) => { setSearchValue(val.target.value) }} type={"search"} placeholder="Product id" />
         <button onClick={() => { router.push(`/product/${searchValue}`) }}>Search</button>
 
-      </div>
+      </div> */}
 
       <div className={styles.productsContainer}>
         {products.map(product=><Product key={product.id} product={product} />)}

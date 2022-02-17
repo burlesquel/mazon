@@ -1,5 +1,5 @@
 import Product from "../../components/Product"
-import styles from "../../styles/[category].module.css"
+import styles from "../../styles/Products.module.css"
 import CategoriesNavbar from "../../components/CategoriesNavbar/CategoriesNavbar";
 
 export default function Category({ products }) {

@@ -1,7 +1,7 @@
 .productContainer{
     width: 250rem;
     height: 380rem;
-    border: pink 2px solid;
+    border: black 2px solid;
     margin-bottom: 10rem;
     overflow: hidden;
     display: flex;
@@ -11,14 +11,36 @@
     cursor: pointer;
 }
 
+.productContainer > *{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 .productNameContainer{
-    flex:1
+    flex:1;
+
 }
 
 .imageContainer{
-    flex:4
+    flex:4; 
+    width: 100%;
+    position: relative;
+    object-fit: cover;
+}
+
+.image{
+    border: 2px solid black;
 }
 
 .descriptionContainer{
-    flex: 2;
+     flex: 2; 
+
+}
+
+.priceContainer{
+    flex:0.5;
+
+    font-weight: bold;
 }

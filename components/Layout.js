@@ -15,7 +15,7 @@ export default function Layout({ children }) {
 
             <navbar className={styles.navbar}>
                 <div className={styles.logodiv}>
-                    <Link href={"/"}><Image alt="image" className={styles.logo} src={"https://i.ibb.co/bWCxJwK/Mazon-logos-transparent.png"} layout="fill"/></Link>
+                    <Link href={"/"}><Image alt="image" className={styles.logo} src={"https://i.ibb.co/6btqxHd/Mazon-logos-white.png"} objectFit="contain" layout="fill" /></Link>
                 </div>
 
                 {context.authReady ? (  // IF THE PAGE IS LOADING AND DONT KNOW IF THE USER LOGGED IN OR NOT, DO NOT RENDER THE NAVBAR
@@ -34,7 +34,38 @@ export default function Layout({ children }) {
             {children}
 
             <footer className={styles.footer}>
-                FOOTER
+                <div className={styles.footerLogoContainer}><Image alt="image" className={styles.logo} src={"https://i.ibb.co/6btqxHd/Mazon-logos-white.png"} objectFit="contain" layout="fill" /></div>
+                <div>
+                    <h3>ABOUT US</h3>
+                    <ul>
+                        <li>Careers</li>
+                        <li>Blog</li>
+                        <li>About Mazon</li>
+                        <li>Investor Relations</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>OUR POLICY</h3>
+                    <ul>
+                        <li>User Agreements</li>
+                        <li>Store Agremeents</li>
+                        <li>Become an Affiliate</li>
+                        <li>Returns & Replacements</li>
+                        <li>Business Card</li>
+                        <li>Advertise Your Product</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>LET US HELP YOU</h3>
+                    <ul>
+                        <li>Contact</li>
+                        <li>Mazon Assistant</li>
+                        <li>Your Account</li>
+                        <li>Covid19</li>
+                        <li>Returns & Replacements</li>
+                        <li>Help</li>
+                    </ul>
+                </div>
             </footer>
 
         </section>

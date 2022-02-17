@@ -8,6 +8,11 @@ body {
   background-color: #c9c0bb;
 }
 
+*{
+  margin:0;
+  padding: 0;
+}
+
 html{
   font-size: 6.25%;
 }
