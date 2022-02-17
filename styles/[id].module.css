@@ -15,7 +15,7 @@
     flex-direction: row;
     margin-top: 20rem;
     background-color:beige;
-    width: 80%;
+    width: 90%;
     align-self: center;
     margin-left: auto;
     margin-right: auto;
@@ -28,7 +28,7 @@
 .imageContainer{
     flex: 1;
     position: relative;
-    max-width: 50%;
+    height:28vw;
     background-color: white;
     border: 1px solid black;
 }
@@ -46,11 +46,4 @@
 .textContent > h1{
     text-align: center;
     margin-top: 0;
-}
-
-.image{
-    object-fit: contain;
-    object-position: center;
-    align-items: center;
-    
 }
