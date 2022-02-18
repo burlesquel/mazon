@@ -206,7 +206,7 @@ export default function Home() {
                                 selectedCategory && categoryStructure[selectedCategory].map((subcategory) => {
                                     console.log("sub category rendered");
                                     return (
-                                        <option key={parseInt(Math.random() * 100000)} key={key} value={subcategory}>{subcategory.replace("-", " ").toUpperCase()}</option>
+                                        <option key={parseInt(Math.random() * 100000)} value={subcategory}>{subcategory.replace("-", " ").toUpperCase()}</option>
                                     )
                                 })
 
