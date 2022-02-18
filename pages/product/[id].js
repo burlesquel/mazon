@@ -2,13 +2,16 @@ import Image from "next/image"
 import Link from "next/link"
 import styles from "../../styles/[id].module.css"
 import CategoriesNavbar from "../../components/CategoriesNavbar/CategoriesNavbar"
+import TechnicalDetails from "../../components/TechnicalDetails"
+
 
 export default function Product({ product }) {
 
-
   return (
     <div>
+
       <CategoriesNavbar />
+
       <div className={styles.categoryNavigation}>
         <Link href={`/category/${product.category}`}>{product.category}</Link> &gt; <Link href={`/category/${product.category}/${product.subcategory}`}>{product.subcategory}</Link>
       </div>
@@ -29,7 +32,11 @@ export default function Product({ product }) {
           <p>Stock:{product.stock.quantity}</p>
 
         </div>
+
+
       </div>
+
+      <TechnicalDetails product={product} />
     </div>
 
   )

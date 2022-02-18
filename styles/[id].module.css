@@ -1,7 +1,7 @@
 .categoryNavigation{
-    margin-top: 10rem;
-    margin-left: 10rem;
-    font-size: 16rem;
+    margin-top: 0.625rem;
+    margin-left: 0.625rem;
+    font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -13,16 +13,16 @@
 .productContainer{
     display: flex;
     flex-direction: row;
-    margin-top: 20rem;
+    margin-top: 1.25rem;
     background-color:beige;
     width: 90%;
     align-self: center;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 10rem;
+    border-radius: 0.625rem;
     border: 2px solid black;
     box-shadow: 2.5px 5px black;
-    padding: 30rem;
+    padding: 1.875rem;
 }
 
 .imageContainer{
@@ -35,12 +35,12 @@
 
 .textContent{
     flex:1;
-    padding-left: 10rem;
+    padding-left: 0.625rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 100%;
-    font-size: 16rem;
+    font-size: 1rem;
 }
 
 .textContent > h1{

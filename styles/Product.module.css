@@ -1,8 +1,8 @@
 .productContainer{
-    width: 250rem;
-    height: 380rem;
+    width: 15.625rem;
+    height: 24rem;
     border: black 2px solid;
-    margin-bottom: 10rem;
+    margin-bottom: .625rem;
     overflow: hidden;
     display: flex;
     flex-direction: column;

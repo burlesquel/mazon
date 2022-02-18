@@ -2,42 +2,46 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Lato', sans-serif;
-  background-color: #c9c0bb;
+  padding: 0 !important; 
+  margin: 0 !important;
+  font-family: 'Lato', sans-serif !important;
+  background-color: #c9c0bb !important;
 }
 
 *{
-  margin:0;
-  padding: 0;
+  margin:0 ;
+  padding: 0 
 }
 
-html{
-  font-size: 6.25%;
+/* html{
+  font-size: 6.25% ;
 }
 
 body{
-  font-size: 14rem;
-}
+  font-size: 14rem ;
+} */
 
-h1{
-  font-size: 32rem;
+/* h1{
+  font-size: 32rem !important;
 }
 
 h2{
-  font-size: 24rem;
+  font-size: 24rem !important;
 }
 
 h3{
-  font-size: 18.72rem;
-}
+  font-size: 18.72rem !important;
+} */
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color: inherit !important;
+  text-decoration: none !important;
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
+}
+
+.btn-primary{
+  padding: 0rem;
 }

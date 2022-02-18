@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from "react"
 import netlifyIdentity from "netlify-identity-widget"
-import { addUser } from "../data-management/addUser"
 
 const axios = require("axios")
 
