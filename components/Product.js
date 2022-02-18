@@ -12,7 +12,7 @@ export default function Product({ product }) {
         <section className={styles.productContainer}>
 
             <div className={styles.productNameContainer}>
-                <h2>{product.name}</h2>
+                <h3>{product.name}</h3>
             </div>
 
             <div className={styles.imageContainer}>

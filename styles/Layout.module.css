@@ -56,13 +56,19 @@
     padding-bottom: 0.75rem;
 }
 
-.footer > *{
+.footer div{
     display: flex;
     flex-direction: column;
     flex:1;
     align-items: center;
+    justify-content: baseline;
     margin-top: 0.938rem;
     margin-bottom: 0.938rem;
+}
+
+.footer h5{
+    text-decoration: underline;
+    text-align: center;
 }
 
 .footer ul{
@@ -70,16 +76,16 @@
     margin-top: 0.625rem;
     display: flex;
     flex-direction: column;
+    padding-left: 0; 
 }
 
-.footer h3{
-    text-align: left;
-}
 
 .footer ul li{
-    padding-top: 0.5rem;
+    margin-top: 0.5rem;
     align-self: center;
     cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* .ul {

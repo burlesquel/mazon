@@ -190,7 +190,7 @@ export default function Home() {
                             <option value="" disabled hidden>Choose here</option>
                             {Object.keys(categoryStructure).map((category) => {
                                 return (
-                                    <option value={category}>{category.replace("-", " ").toUpperCase()}</option>
+                                    <option key={parseInt(Math.random() * 100000)} value={category}>{category.replace("-", " ").toUpperCase()}</option>
                                 )
                             })}
                         </select>
@@ -204,10 +204,9 @@ export default function Home() {
 
                                 // <option key={key} value={sc}>{sc}</option> // WITH MAP
                                 selectedCategory && categoryStructure[selectedCategory].map((subcategory) => {
-                                    key = key + 1
                                     console.log("sub category rendered");
                                     return (
-                                        <option key={key} value={subcategory}>{subcategory.replace("-", " ").toUpperCase()}</option>
+                                        <option key={parseInt(Math.random() * 100000)} key={key} value={subcategory}>{subcategory.replace("-", " ").toUpperCase()}</option>
                                     )
                                 })
 

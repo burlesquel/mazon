@@ -20,9 +20,9 @@ export default function Layout({ children }) {
 
                 {context.authReady ? (  // IF THE PAGE IS LOADING AND DONT KNOW IF THE USER LOGGED IN OR NOT, DO NOT RENDER THE NAVBAR
                     <div className={styles.linksdiv}>
-                        <Link href={"/"}><h3>Main Page</h3></Link>
-                        <Link href={"/products"}><h3>Products</h3></Link>
-                        {context.user ? <Link href={"/my_store"}><h3>My Store</h3></Link> : null}
+                        <Link href={"/"}><h5>Main Page</h5></Link>
+                        <Link href={"/products"}><h5>Products</h5></Link>
+                        {context.user ? <Link href={"/my_store"}><h5>My Store</h5></Link> : null}
                         {context.user ? null : <a onClick={context.login}>LOGIN/SIGN IN</a>}
                         {context.user ? <a onClick={context.logout}>LOG OUT</a> : null}
                     </div>
@@ -36,7 +36,7 @@ export default function Layout({ children }) {
             <footer className={styles.footer}>
                 <div className={styles.footerLogoContainer}><Image alt="image" className={styles.logo} src={"https://i.ibb.co/6btqxHd/Mazon-logos-white.png"} objectFit="contain" layout="fill" /></div>
                 <div>
-                    <h3>ABOUT US</h3>
+                    <h5>ABOUT US</h5>
                     <ul>
                         <li>Careers</li>
                         <li>Blog</li>
@@ -45,7 +45,7 @@ export default function Layout({ children }) {
                     </ul>
                 </div>
                 <div>
-                    <h3>OUR POLICY</h3>
+                    <h5>OUR POLICY</h5>
                     <ul>
                         <li>User Agreements</li>
                         <li>Store Agremeents</li>
@@ -56,7 +56,7 @@ export default function Layout({ children }) {
                     </ul>
                 </div>
                 <div>
-                    <h3>LET US HELP YOU</h3>
+                    <h5>LET US HELP YOU</h5>
                     <ul>
                         <li>Contact</li>
                         <li>Mazon Assistant</li>
