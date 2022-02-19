@@ -97,8 +97,9 @@
 }
 
 @media screen and (max-width: 777px) {
-    .navbar {
-      flex-direction: column;
+    .linksdiv{
+        flex-direction:column;
+        margin-top: 18px;
     }
     .linksdiv > *{
         margin-top: .625rem;
@@ -114,15 +115,13 @@
   }
 
   @media screen and (max-width: 474px) {
-    .linksdiv{
-        flex-direction:column
-    }
+
     .logodiv{
         flex: 2;
     }
-    .footer{
+    /* .footer{
         flex-direction: column;
-    }
+    } */
     .footer ul{
         margin-top: 0;
     }

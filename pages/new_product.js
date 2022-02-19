@@ -43,10 +43,10 @@ const addProduct = async (event) => {
     product_.details = rest
     console.log(product_);
 
-    // await axios.post('https://mazon-server.herokuapp.com/addproduct', product_).then(res => {
-    //     console.log(res);
-    //     router.push(`/product/${id}`)
-    // })
+    await axios.post('https://mazon-server.herokuapp.com/addproduct', product_).then(res => {
+        console.log(res);
+        router.push(`/product/${id}`)
+    })
 
 };
 
