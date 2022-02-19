@@ -22,16 +22,27 @@ export default function Product({ product }) {
           <Image alt="image" className={styles.image} src={product.image_url} objectFit="contain" layout="fill" />
         </div>
 
-        <div className={styles.textContent}>
+        <div className={styles.content}>
 
-          <h1>{product.name}</h1>
-          <h3>Store: {product.store.name}</h3>
-          <p>{product.description}</p>
-          <h2>Price: ${product.price.total_price}</h2>
-          <p>Brand:{product.brand}</p>
-          <p>Stock:{product.stock.quantity}</p>
+          <div className={styles.briefProductInfo}>
+
+            <h1>{product.name}</h1>
+            <p>{product.description}</p>
+            <p>Brand:{product.brand}</p>
+            <p>Stock:{product.stock.quantity}</p>
+            <h2>Price: ${product.price.total_price}</h2>
+
+          </div>
+
+          <div className={styles.userInfo}>
+
+          <h3>Owner: {product.store.name}</h3>
+
+          </div>
 
         </div>
+
+
 
 
       </div>

@@ -16,9 +16,14 @@
 .eachInputAndLabel{
     display: inline-flex;
     text-align: left;
-    width: 20%;
+    min-width: 60%;
     justify-content: space-between;
-    margin-top: .625rem;
+    padding: .625rem;
+    border: 1px black solid;
+}
+
+.eachInputAndLabel > *{
+    flex:1
 }
 
 .preTechnicalDetailsContainer{
@@ -35,3 +40,17 @@
 
 
 
+
+/* BOOTSTRAP */
+
+/* .form-select{
+    width: 20px
+} */
+
+
+@media screen and (max-width: 546px) {
+    .eachInputAndLabel{
+        width: 100%;
+    }
+
+  }

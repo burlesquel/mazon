@@ -1,7 +1,7 @@
 .productContainer{
     width: 15.625rem;
     height: 24rem;
-    border: black 2px solid;
+    border: rgb(197, 197, 197) 3px solid;
     margin-bottom: .625rem;
     overflow: hidden;
     display: flex;
@@ -9,6 +9,12 @@
     align-items:center;
     text-align: center;
     cursor: pointer;
+    border-radius: 0.5rem;
+    transition: .3s;
+}
+
+.productContainer:hover{
+    border-color: black;
 }
 
 .productContainer > *{

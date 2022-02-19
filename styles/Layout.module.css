@@ -99,7 +99,10 @@
 @media screen and (max-width: 777px) {
     .linksdiv{
         flex-direction:column;
-        margin-top: 18px;
+        
+    }
+    .linksdiv > h5:first-child{
+        display: none;
     }
     .linksdiv > *{
         margin-top: .625rem;
@@ -109,9 +112,10 @@
         object-position: center;
     }
     .footerLogoContainer{
-        flex: 0;
+        display: none;
+        visibility:hidden;
+        position: absolute;
     }
-
   }
 
   @media screen and (max-width: 474px) {
@@ -119,9 +123,9 @@
     .logodiv{
         flex: 2;
     }
-    /* .footer{
+    .footer{
         flex-direction: column;
-    } */
+    } 
     .footer ul{
         margin-top: 0;
     }
