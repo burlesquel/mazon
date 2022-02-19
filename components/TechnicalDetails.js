@@ -19,7 +19,7 @@ export default function TechnicalDetails({ product }) {
                     valIndex = valIndex + 1
                     return (
 
-                        <div className={styles.eachDetail}>
+                        <div key={parseInt(Math.random() * 100000)} className={styles.eachDetail}>
                             <span>
                                 {key.replace("_", " ").toUpperCase()}
                             </span> 

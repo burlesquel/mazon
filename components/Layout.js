@@ -50,7 +50,6 @@ export default function Layout({ children }) {
                         <li>User Agreements</li>
                         <li>Store Agremeents</li>
                         <li>Become an Affiliate</li>
-                        <li>Returns & Replacements</li>
                         <li>Business Card</li>
                         <li>Advertise Your Product</li>
                     </ul>
@@ -62,7 +61,7 @@ export default function Layout({ children }) {
                         <li>Mazon Assistant</li>
                         <li>Your Account</li>
                         <li>Covid19</li>
-                        <li>Returns & Replacements</li>
+                        <li>Returns and Replacements</li>
                         <li>Help</li>
                     </ul>
                 </div>
