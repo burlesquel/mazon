@@ -11,18 +11,20 @@
 }
 
 .productContainer{
-    display: flex;
-    flex-direction: row;
     margin-top: 1.25rem;
     background-color:beige;
     width: 90%;
-    align-self: center;
     margin-left: auto;
     margin-right: auto;
     border-radius: 0.625rem;
     border: 2px solid black;
     box-shadow: 2.5px 5px black;
     padding: 1.875rem;
+}
+
+.imageAndContent{
+    display: flex;
+    width: 100%;
 }
 
 .imageContainer{
@@ -55,5 +57,16 @@
     padding: 0.4rem;
     background-color: brown;
     width: 50%;
+}
+
+.descriptionContainer{
+    margin-top: 1rem;
+    border-top: 2px black dotted;
+}
+
+.descriptionContainer > h2{
+    text-align: center;
+    margin-top: 1rem;
+
 }
 

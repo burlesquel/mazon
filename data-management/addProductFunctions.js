@@ -3,10 +3,11 @@ const axios = require("axios")
 // const imgbbPostLink = "https://api.imgbb.com/1/upload&key=c0da0fd8e2f81e366f0e06c96e60c889"
 
 class Product {
-  constructor(id, name, description, isItDiscounted, discountAmount, priceWithoutDiscount, isInStock, quantity, brand, category, subcategory, storeName, storeUrl, imgUrl) {
+  constructor(id, name, description,age, isItDiscounted, discountAmount, priceWithoutDiscount, isInStock, quantity, brand, category, subcategory, ownerName, ownerId, imgUrl) {
     this.id = id
     this.name = name
     this.description = description
+    this.age = age
     this.price = {
       "discounted": isItDiscounted,
       "discount": discountAmount,
@@ -20,9 +21,9 @@ class Product {
     this.brand = brand
     this.category = category
     this.subcategory = subcategory
-    this.store = {
-      "name": storeName,
-      "url": storeUrl
+    this.owner = {
+      "name": ownerName,
+      "id": ownerId
     }
     this.image_url = imgUrl
     

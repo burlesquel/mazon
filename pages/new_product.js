@@ -8,7 +8,7 @@ var key = 0
 var key2 = 1
 
 
-const addProduct = async (event, router) => {
+const addProduct = async (event, router, context) => {
 
     Object.fromEntries = arr => Object.assign({}, ...Array.from(arr, ([k, v]) => ({ [k]: v })));
 
@@ -31,15 +31,18 @@ const addProduct = async (event, router) => {
 
     var preProduct = Object.fromEntries(keyValuePairs)
 
-    var { name, description, price, category, subcategory, stock, brand, storeName, image, ...rest } = preProduct
+    var { name, description, age, price, category, subcategory, stock, brand, image, ...rest } = preProduct
     var { image } = event.target
+
+    const ownerName = context.user.user_metadata.full_name
+    const ownerId = context.user.id
 
 
     const id = generateId(8)
     const imageFile = await image.files[0]
     const res = await uploadImage(imageFile)
     const imgUrl = await res.data.data.display_url
-    const product_ = new Product(id, name, description, false, 0, Number(price), true, Number(stock), brand, category, subcategory, storeName, "anan.am.com", imgUrl)
+    const product_ = new Product(id, name, description, age, false, 0, Number(price), true, Number(stock), brand, category, subcategory, ownerName, ownerId, imgUrl)
     product_.details = rest
     console.log(product_);
 
@@ -53,7 +56,7 @@ const addProduct = async (event, router) => {
 const categoryStructure = {
     "external-utilities": ["keyboards", "printers", "mouse", "speakers", "monitors"],
     "desktop": ["processor", "ram", "graphic-cards", "motherboards", "power-supply", "bios-chips"],
-    "laptop": ["processor", "ram", "graphic-cards", "motherboards", "battery"],
+    "laptop": ["processor", "ram", "graphic-cards", "motherboards"],
 }
 
 class Details {
@@ -166,7 +169,7 @@ export default function Home() {
         return (
             <div className={styles.mainContainer}>
 
-                <form className={styles.formContainer} method="post" onSubmit={() => { addProduct(event, router) }}>
+                <form className={styles.formContainer} method="post" onSubmit={() => { addProduct(event, router, context) }}>
 
 
                     <div className={styles.eachInputAndLabel}>
@@ -177,6 +180,11 @@ export default function Home() {
                     <div className={styles.eachInputAndLabel}>
                         <label htmlFor="description">Description</label>
                         <input className="form-control" id="description" name="description" type="text" autoComplete="description" required />
+                    </div>
+
+                    <div className={styles.eachInputAndLabel}>
+                        <label htmlFor="age">Age</label>
+                        <input className="form-control" id="age" name="age" type="number" autoComplete="age" required />
                     </div>
 
                     <div className={styles.eachInputAndLabel}>
@@ -225,13 +233,8 @@ export default function Home() {
                     </div>
 
                     <div className={styles.eachInputAndLabel}>
-                        <label htmlFor="storeName">Store Name</label>
-                        <input className="form-control" id="storeName" name="storeName" type="text" autoComplete="storeName" required />
-                    </div>
-
-                    <div className={styles.eachInputAndLabel}>
-                        <label htmlFor="image">image</label>
-                        <input className="form-control-file" id="image" name="image" type="file" accept="image/png, image/gif, image/jpeg" autoComplete="image" required />
+                        <label htmlFor="image">Image</label>
+                        <input  className="form-control-file" id="image" name="image" type="file" accept="image/png, image/gif, image/jpeg" autoComplete="image" required />
                     </div>
 
                     <h1>TECHNICAL DETAILS</h1>

@@ -38,7 +38,7 @@ const EULinks = [
       href:"/category/motherboard/motherboards"
     },
     {
-      name:"Power",
+      name:"Power Supply",
       href:"/category/motherboard/power"
     },
     {
@@ -63,14 +63,6 @@ const EULinks = [
     {
       name:"Motherboards",
       href:"/category/laptop/motherboards"
-    },
-    {
-      name:"Power",
-      href:"/category/laptop/power"
-    },
-    {
-      name:"BIOS Chips",
-      href:"/category/laptop/bios-chips"
     },
   ]
 
