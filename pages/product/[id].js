@@ -49,7 +49,7 @@ export default function Product({ product }) {
         <div className={styles.descriptionContainer}>
           <h2>Description</h2>
           <p>{product.description}</p>
-          <p>Product's Age: {product.age} years</p>
+          <p>Age of the Product: {product.age} years</p>
         </div>
 
         <TechnicalDetails product={product} />
