@@ -23,27 +23,27 @@ const EULinks = [
   const MBLinks = [
     {
       name:"Processor",
-      href:"/category/motherboard/processor"
+      href:"/category/desktop/processor"
     },
     {
       name:"RAM",
-      href:"/category/motherboard/ram"
+      href:"/category/desktop/ram"
     },
     {
       name:"Graphic Cards",
-      href:"/category/motherboard/graphic-cards"
+      href:"/category/desktop/graphic-cards"
     },
     {
       name:"Motherboards",
-      href:"/category/motherboard/motherboards"
+      href:"/category/desktop/motherboards"
     },
     {
       name:"Power Supply",
-      href:"/category/motherboard/power"
+      href:"/category/desktop/power"
     },
     {
       name:"BIOS Chips",
-      href:"/category/motherboard/bios-chips"
+      href:"/category/desktop/bios-chips"
     },
   ]
   
@@ -71,7 +71,7 @@ export default function CategoriesNavbar(){
     return (
         <section className={styles.upperNavSection}>
             <DropDown title={"External Utilities"} mainCategoryHref="/category/external-utilities" links={EULinks} />
-            <DropDown title={"Desktop Parts"} mainCategoryHref="/category/motherboard" links={MBLinks} />
+            <DropDown title={"Desktop Parts"} mainCategoryHref="/category/desktop" links={MBLinks} />
             <DropDown title={"Laptop Parts"} mainCategoryHref="/category/laptop" links={LP} />
             <DropDown title={"Monitors"} mainCategoryHref="/category/monitors" links={[]} />
         </section>

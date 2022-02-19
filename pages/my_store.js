@@ -14,7 +14,7 @@ export default function Home() {
         return (
             <div>
                 MY STORE
-                <Link href={"/new_product"}><h3>Create New Product</h3></Link>
+                <h3><Link href={"/new_product"}>Create New Product</Link></h3>
             </div>
         )
     }

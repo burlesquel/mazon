@@ -12,7 +12,9 @@ export default function Product({ product }) {
         <section className={styles.productContainer}>
 
             <div className={styles.productNameContainer}>
-                <h3>{product.name}</h3>
+                <h4>{
+                    product.name.length > 35 ? product.name.substring(0,35) + "..." : product.name
+                    }</h4>
             </div>
 
             <div className={styles.imageContainer}>
@@ -20,7 +22,9 @@ export default function Product({ product }) {
             </div>
 
             <div className={styles.descriptionContainer}>
-                <p>{product.description}</p>
+                <p>{
+                product.description.length > 100 ? product.description.substring(0,100) + "..." : product.description
+                }</p>
             </div>
 
             <div className={styles.priceContainer}>

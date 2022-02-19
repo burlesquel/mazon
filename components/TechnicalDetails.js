@@ -24,7 +24,7 @@ export default function TechnicalDetails({ product }) {
                                 {key.replace("_", " ").toUpperCase()}
                             </span> 
                             <span>
-                                {values[valIndex]}
+                                <strong>{values[valIndex]}</strong> 
                             </span>
                         </div>
 
