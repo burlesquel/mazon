@@ -231,7 +231,7 @@ export default function Home() {
 
                     <div className={styles.eachInputAndLabel}>
                         <label htmlFor="image">image</label>
-                        <input className="form-control" className="form-control-file" id="image" name="image" type="file" accept="image/png, image/gif, image/jpeg" autoComplete="image" required />
+                        <input className="form-control-file" id="image" name="image" type="file" accept="image/png, image/gif, image/jpeg" autoComplete="image" required />
                     </div>
 
                     <h1>TECHNICAL DETAILS</h1>
