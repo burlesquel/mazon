@@ -86,7 +86,7 @@ const EachDetail = ({ detail }) => {
 
             <div className={styles.eachInputAndLabel} key={parseInt(Math.random() * 100000)}>
                 <label htmlFor={detail.name.toLowerCase()}>{detail.name}</label>
-                <input class="form-control" id={detail.name.toLowerCase()} name={detail.name.toLowerCase()} type="text" autoComplete={detail.name.toLowerCase()} required />
+                <input className="form-control" id={detail.name.toLowerCase()} name={detail.name.toLowerCase()} type="text" autoComplete={detail.name.toLowerCase()} required />
             </div>
 
         )
@@ -97,7 +97,7 @@ const EachDetail = ({ detail }) => {
 
             <div className={styles.eachInputAndLabel} key={parseInt(Math.random() * 100000)}>
                 <label htmlFor={detail.name.toLowerCase()}>{detail.name}</label>
-                <input class="form-control" id={detail.name.toLowerCase()} name={detail.name.toLowerCase()} type="number" autoComplete={detail.name.toLowerCase()} required />
+                <input className="form-control" id={detail.name.toLowerCase()} name={detail.name.toLowerCase()} type="number" autoComplete={detail.name.toLowerCase()} required />
             </div>
 
         )
@@ -171,17 +171,17 @@ export default function Home() {
 
                     <div className={styles.eachInputAndLabel}>
                         <label htmlFor="name">Name</label>
-                        <input class="form-control" id="name" name="name" type="text" autoComplete="name" required />
+                        <input className="form-control" id="name" name="name" type="text" autoComplete="name" required />
                     </div>
 
                     <div className={styles.eachInputAndLabel}>
                         <label htmlFor="description">Description</label>
-                        <input class="form-control" id="description" name="description" type="text" autoComplete="description" required />
+                        <input className="form-control" id="description" name="description" type="text" autoComplete="description" required />
                     </div>
 
                     <div className={styles.eachInputAndLabel}>
                         <label htmlFor="price">Price</label>
-                        <input class="form-control" id="price" name="price" type="number" autoComplete="price" required />
+                        <input className="form-control" id="price" name="price" type="number" autoComplete="price" required />
                     </div>
 
                     <div className={styles.eachInputAndLabel}>
@@ -216,22 +216,22 @@ export default function Home() {
 
                     <div className={styles.eachInputAndLabel}>
                         <label htmlFor="stock">Stock</label>
-                        <input class="form-control" id="stock" name="stock" type="number" autoComplete="stock" required />
+                        <input className="form-control" id="stock" name="stock" type="number" autoComplete="stock" required />
                     </div>
 
                     <div className={styles.eachInputAndLabel}>
                         <label htmlFor="brand">Brand</label>
-                        <input class="form-control" id="brand" name="brand" type="text" autoComplete="brand" required />
+                        <input className="form-control" id="brand" name="brand" type="text" autoComplete="brand" required />
                     </div>
 
                     <div className={styles.eachInputAndLabel}>
                         <label htmlFor="storeName">Store Name</label>
-                        <input class="form-control" id="storeName" name="storeName" type="text" autoComplete="storeName" required />
+                        <input className="form-control" id="storeName" name="storeName" type="text" autoComplete="storeName" required />
                     </div>
 
                     <div className={styles.eachInputAndLabel}>
                         <label htmlFor="image">image</label>
-                        <input class="form-control" class="form-control-file" id="image" name="image" type="file" accept="image/png, image/gif, image/jpeg" autoComplete="image" required />
+                        <input className="form-control" className="form-control-file" id="image" name="image" type="file" accept="image/png, image/gif, image/jpeg" autoComplete="image" required />
                     </div>
 
                     <h1>TECHNICAL DETAILS</h1>
