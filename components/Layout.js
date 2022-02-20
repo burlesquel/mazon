@@ -1,35 +1,65 @@
-
+import CategoriesNavbar from "../components/CategoriesNavbar/CategoriesNavbar"
 import Link from "next/link"
 import Image from "next/image"
 import styles from "../styles/Layout.module.css"
 import AuthContext from "../authentication/authContext"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
+import Loading from "./Loading"
+
 
 
 export default function Layout({ children }) {
+
+    const [navbarStyle, setNavbarStyle] = useState({ div: { height: "9rem" }, img: { display: "" } })
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 90) {
+                setNavbarStyle({ div: { height: "auto" }, img: { display: "none" } })
+            }
+            else {
+                setNavbarStyle({ div: { height: "9rem" }, img: { display: "" } })
+            }
+        })
+    }, [])
+
     const context = useContext(AuthContext) // determined value in authcontext provider as props
     console.log(context.user);
 
     return (
         <section>
 
-            <navbar className={styles.navbar}>
-                <div className={styles.logodiv}>
-                    <Link href={"/"}><Image alt="image" className={styles.logo} src={"https://i.ibb.co/6btqxHd/Mazon-logos-white.png"} objectFit="contain" layout="fill" /></Link>
-                </div>
-
-                {context.authReady ? (  // IF THE PAGE IS LOADING AND DONT KNOW IF THE USER LOGGED IN OR NOT, DO NOT RENDER THE NAVBAR
-                    <div className={styles.linksdiv}>
-                        <Link href={"/"}><h5>Main Page</h5></Link>
-                        <Link href={"/products"}><h5>Products</h5></Link>
-                        {context.user ? <Link href={"/my_store"}><h5>My Store</h5></Link> : null}
-                        {context.user ? null : <a onClick={context.login}>LOGIN/SIGN IN</a>}
-                        {context.user ? <a onClick={context.logout}>LOG OUT</a> : null}
+            <div className={styles.mainNavContainer}>
+                <navbar style={navbarStyle.div} className={styles.navbar}>
+                    <div style={navbarStyle.img} className={styles.logodiv}>
+                        <Link href={"/"}><Image alt="image" className={styles.logo} src={"https://i.ibb.co/6btqxHd/Mazon-logos-white.png"} objectFit="contain" layout="fill" /></Link>
                     </div>
-                )
-                    :
-                    (null)}
-            </navbar>
+
+                    {context.authReady ? (  // IF THE PAGE IS LOADING AND DONT KNOW IF THE USER LOGGED IN OR NOT, DO NOT RENDER THE NAVBAR
+                        <div className={styles.linksdiv}>
+                            <Link href={"/"}><h5>Main Page</h5></Link>
+                            <Link href={"/products"}><h5>Products</h5></Link>
+                            {context.user ? <Link href={"/my_store"}><h5>My Store</h5></Link> : null}
+                            {context.user ? null : <a onClick={context.login}>LOGIN/SIGN IN</a>}
+                            {context.user ? <a onClick={context.logout}>LOG OUT</a> : null}
+                        </div>
+                    )
+                        :
+                        <div className={styles.linksdiv}>
+                            <Link href={"/"}><h5>Main Page</h5></Link>
+                            <Link href={"/products"}><h5>Products</h5></Link>
+                            <Link href={"/my_store"}><h5>My Store</h5></Link>
+                            <Loading/>
+                            <Loading/>
+                        </div>
+                        }
+                </navbar>
+                <CategoriesNavbar />
+            </div>
+
+
+
+
 
             {children}
 

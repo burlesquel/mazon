@@ -18,6 +18,10 @@ const EULinks = [
       name:"Speakers",
       href:"/category/external-utilities/speakers"
     },
+    {
+      name:"Monitors",
+      href:"/category/external-utilities/monitors"
+    }
   ]
   
   const MBLinks = [
@@ -73,7 +77,7 @@ export default function CategoriesNavbar(){
             <DropDown title={"External Utilities"} mainCategoryHref="/category/external-utilities" links={EULinks} />
             <DropDown title={"Desktop Parts"} mainCategoryHref="/category/desktop" links={MBLinks} />
             <DropDown title={"Laptop Parts"} mainCategoryHref="/category/laptop" links={LP} />
-            <DropDown title={"Monitors"} mainCategoryHref="/category/monitors" links={[]} />
+            {/* <DropDown title={"Monitors"} mainCategoryHref="/category/monitors" links={[]} /> */}
         </section>
     )
 }

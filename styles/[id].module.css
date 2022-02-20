@@ -55,7 +55,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    /* align-items: center; */
     background-color: white;
 }
 
@@ -100,7 +100,6 @@
 
 .descriptionContainer{
     margin-top: 1rem;
-    border-top: 2px black dotted;
 }
 
 .descriptionContainer > h2{
@@ -108,4 +107,26 @@
     margin-top: 1rem;
 
 }
+
+.commentsMainContainer{
+    border-top: 2px black dotted;
+    padding-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textBoxContainer{
+    width: 80%;
+}
+
+.form{
+    width: 100%;
+}
+
+.textArea{
+    width: 100%;
+}
+
 

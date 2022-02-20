@@ -1,17 +1,24 @@
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from 'next/router';
 import styles from "../../styles/[id].module.css"
-import CategoriesNavbar from "../../components/CategoriesNavbar/CategoriesNavbar"
 import TechnicalDetails from "../../components/TechnicalDetails"
 import { IoCheckmarkDoneSharp, IoPersonCircleSharp, IoStarSharp, IoMail } from "react-icons/io5";
+import {useState, useContext } from "react"
+import AuthContext from "../../authentication/authContext";
+import { addComment } from "../../data-management/addCommentFunctions";
+
 
 
 export default function Product({ product }) {
 
+  const [commentSent, setCommentSent] = useState(false)
+
+  const router = useRouter()
+  const context = useContext(AuthContext)
+
   return (
     <div>
-
-      <CategoriesNavbar />
 
       <div className={styles.categoryNavigation}>
         <Link href={`/category/${product.category}`}>{product.category}</Link> &gt; <Link href={`/category/${product.category}/${product.subcategory}`}>{product.subcategory}</Link>
@@ -68,10 +75,19 @@ export default function Product({ product }) {
 
         <TechnicalDetails product={product} />
 
+        <div className={styles.commentsMainContainer}>
+          <h2>Comments</h2>
+
+          <div className={styles.textBoxContainer}>
+            <form className={styles.form} onSubmit={() => { addComment(event, context, router, product.id) }}>
+              <textarea class="form-control" className={styles.textArea} id="comment" name="comment" autoComplete="comment" required></textarea>
+              <button type="submit">Send</button>
+            </form>
+          </div>
+
+        </div>
+
       </div>
-
-
-
 
     </div>
 

@@ -1,3 +1,10 @@
+.mainNavContainer{
+    position:sticky;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+
 .navbar{
     border-bottom: 2px black solid;
     border-top: 2px black solid;
@@ -5,9 +12,9 @@
     flex-direction: row;
     justify-content: space-around;
     padding-bottom: 0.625rem;
-    height: 9.375rem;
+    /* height: 9rem; */
     background-color: black;
-    color:white
+    color:white;
 }
 
 .linksdiv{
@@ -41,7 +48,6 @@
     object-position: left;
     object-fit: contain;
     width: 100%;
-    
 }
 
 .footer{
