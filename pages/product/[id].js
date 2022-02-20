@@ -80,8 +80,8 @@ export default function Product({ product }) {
 
           <div className={styles.textBoxContainer}>
             {context.user && <form className={styles.form} onSubmit={() => { addComment(event, context, router, product.id) }}>
-              <textarea class="form-control" className={styles.textArea} id="comment" name="comment" autoComplete="comment" required></textarea>
-              <button class="btn btn-primary" type="submit">Send</button>
+              <textarea className={`${styles.textArea} form-control`} id="comment" name="comment" autoComplete="comment" required></textarea>
+              <button className="btn btn-primary" type="submit">Send</button>
             </form>}
             
           </div>
