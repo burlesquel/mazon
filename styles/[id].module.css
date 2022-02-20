@@ -125,8 +125,30 @@
     width: 100%;
 }
 
+.form button{
+    float: right;
+    width: 6rem;
+}
+
+
 .textArea{
     width: 100%;
+}
+
+.commentsContainer{
+    margin-top: 1.2rem;
+    padding: 0.5rem;
+    width: 80%;
+    border: 2px gray solid;
+}
+
+.commentsContainer h7{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.commentsContainer span{
+  font-size: small;
 }
 
 

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import styles from "../../styles/[id].module.css"
 import TechnicalDetails from "../../components/TechnicalDetails"
 import { IoCheckmarkDoneSharp, IoPersonCircleSharp, IoStarSharp, IoMail } from "react-icons/io5";
-import {useState, useContext } from "react"
+import { useState, useContext } from "react"
 import AuthContext from "../../authentication/authContext";
 import { addComment } from "../../data-management/addCommentFunctions";
 
@@ -47,17 +47,17 @@ export default function Product({ product }) {
 
               <h4>About Seller</h4>
               <div className={styles.userInfo}>
-                
+
                 <h5>{product.owner.name}</h5>
-                <h8><IoPersonCircleSharp/><strong> x </strong> years user</h8>
-                <h8> <IoCheckmarkDoneSharp/> Email confirmed</h8>
-                <h8> <IoCheckmarkDoneSharp/> Phone confirmed</h8>
-                <h8> <IoStarSharp/> Ratings <em>3.7</em>/4</h8>
+                <h8><IoPersonCircleSharp /><strong> x </strong> years user</h8>
+                <h8> <IoCheckmarkDoneSharp /> Email confirmed</h8>
+                <h8> <IoCheckmarkDoneSharp /> Phone confirmed</h8>
+                <h8> <IoStarSharp /> Ratings <em>3.7</em>/4</h8>
 
               </div>
 
               <div className={styles.sendMessageContainer}>
-               <IoMail/> Send message 
+                <IoMail /> Send message
               </div>
 
 
@@ -79,10 +79,25 @@ export default function Product({ product }) {
           <h2>Comments</h2>
 
           <div className={styles.textBoxContainer}>
-            <form className={styles.form} onSubmit={() => { addComment(event, context, router, product.id) }}>
+            {context.user && <form className={styles.form} onSubmit={() => { addComment(event, context, router, product.id) }}>
               <textarea class="form-control" className={styles.textArea} id="comment" name="comment" autoComplete="comment" required></textarea>
-              <button type="submit">Send</button>
-            </form>
+              <button class="btn btn-primary" type="submit">Send</button>
+            </form>}
+            
+          </div>
+
+          <div className={styles.commentsContainer}>
+            {product.ratings.comments.length > 0 && product.ratings.comments.map((comment) => {
+              return (
+                // KEY AYARLA
+                <div key={parseInt(Math.random() * 100000)}> 
+                  <h7>{comment.userName}</h7>
+                  <p>{comment.comment}</p>
+                  <span> <em>{comment.date}</em> </span>
+                </div>
+
+              )
+            })}
           </div>
 
         </div>

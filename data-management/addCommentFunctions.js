@@ -1,12 +1,13 @@
 const axios = require("axios")
 
 class Comment_{
-    constructor(userID, date, comment, productid){
+    constructor(userID, date, comment, productid, userName){
         this.userID = userID
         this.date = date
         this.like = 0
         this.comment = comment
         this.product_id = productid
+        this.userName = userName
     }
 }
 
@@ -16,12 +17,13 @@ const addComment = async(event, context, router, productid) =>{
     console.log(context);
     const {comment} = event.target
 
-    const com = new Comment_(context.user.id, new Date().toLocaleString(), comment.value, productid)
+    const com = new Comment_(context.user.id, new Date().toLocaleString(), comment.value, productid, context.user.user_metadata.full_name)
 
     console.log(com);
   
     await axios.post('https://mazon-server.herokuapp.com/addcomment', com).then(res => {
         console.log(res);
+        router.push(`/product/${productid}`)
     })
 }
 
