@@ -12,7 +12,7 @@
     flex-direction: row;
     justify-content: space-around;
     padding-bottom: 0.625rem;
-    /* height: 9rem; */
+    height: 9rem;
     background-color: black;
     color:white;
 }

@@ -1,8 +1,8 @@
-import Image from "next/image"
-import Link from "next/link"
-import styles from "../../styles/[id].module.css"
-import CategoriesNavbar from "../../components/CategoriesNavbar/CategoriesNavbar"
-import TechnicalDetails from "../../components/TechnicalDetails"
+// import Image from "next/image"
+// import Link from "next/link"
+// import styles from "../../styles/[id].module.css"
+// import CategoriesNavbar from "../../components/CategoriesNavbar/CategoriesNavbar"
+// import TechnicalDetails from "../../components/TechnicalDetails"
 
 
 export default function Product({ user }) {

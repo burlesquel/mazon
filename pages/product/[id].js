@@ -12,8 +12,6 @@ import { addComment } from "../../data-management/addCommentFunctions";
 
 export default function Product({ product }) {
 
-  const [commentSent, setCommentSent] = useState(false)
-
   const router = useRouter()
   const context = useContext(AuthContext)
 
@@ -111,7 +109,8 @@ export default function Product({ product }) {
 
 export async function getServerSideProps({ params }) {
   const id = params.id
-  const product = await fetch(`https://mazon-server.herokuapp.com/data?productid=${id}`).then(r => r.json())
+  const products = await fetch(`https://mazon-server.herokuapp.com/products?id=${id}`).then(r => r.json())
+  const product = products[0]
   return {
     props: {
       product,

@@ -5,33 +5,35 @@ import styles from "../styles/Layout.module.css"
 import AuthContext from "../authentication/authContext"
 import { useContext, useEffect, useState } from "react"
 import Loading from "./Loading"
+import { IoLogoWindows } from "react-icons/io5"
 
 
 
 export default function Layout({ children }) {
 
-    const [navbarStyle, setNavbarStyle] = useState({ div: { height: "9rem" }, img: { display: "" } })
 
-    useEffect(() => {
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 90) {
-                setNavbarStyle({ div: { height: "auto" }, img: { display: "none" } })
-            }
-            else {
-                setNavbarStyle({ div: { height: "9rem" }, img: { display: "" } })
-            }
-        })
-    }, [])
+    // useEffect(() => {
+
+    //     window.addEventListener("scroll", () => {
+    //         if (window.scrollY > 90) {
+    //             setNavbarStyle({ div: { height: "3rem" }, img: { display: "none" } })
+
+    //         }
+    //         else {
+    //             setNavbarStyle({ div: { height: "9rem", "margin-bottom":"+=6rem" }, img: { display: "" } })
+    //             window.scrollY = 90+96
+    //         }
+    //     })
+    // }, [])
 
     const context = useContext(AuthContext) // determined value in authcontext provider as props
-    console.log(context.user);
 
     return (
         <section>
 
             <div className={styles.mainNavContainer}>
-                <navbar style={navbarStyle.div} className={styles.navbar}>
-                    <div style={navbarStyle.img} className={styles.logodiv}>
+                <navbar className={styles.navbar}>
+                    <div  className={styles.logodiv}>
                         <Link href={"/"}><Image alt="image" className={styles.logo} src={"https://i.ibb.co/6btqxHd/Mazon-logos-white.png"} objectFit="contain" layout="fill" /></Link>
                     </div>
 
@@ -39,16 +41,16 @@ export default function Layout({ children }) {
                         <div className={styles.linksdiv}>
                             <Link href={"/"}><h5>Main Page</h5></Link>
                             <Link href={"/products"}><h5>Products</h5></Link>
-                            {context.user ? <Link href={"/my_store"}><h5>My Store</h5></Link> : null}
+                            {context.user ? <Link href={"/profile"} ><h5>My Store</h5></Link> : null}
                             {context.user ? null : <a onClick={context.login}>LOGIN/SIGN IN</a>}
                             {context.user ? <a onClick={context.logout}>LOG OUT</a> : null}
                         </div>
                     )
                         :
                         <div className={styles.linksdiv}>
-                            <Link href={"/"}><h5>Main Page</h5></Link>
-                            <Link href={"/products"}><h5>Products</h5></Link>
-                            <Link href={"/my_store"}><h5>My Store</h5></Link>
+                            <Loading/>
+                            <Loading/>
+                            <Loading/>
                             <Loading/>
                             <Loading/>
                         </div>
