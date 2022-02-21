@@ -9,11 +9,15 @@ export default function Home() {
     const context = useContext(AuthContext)
 
     if (context.user) {
-
+        console.log(context.user.socket.id);
+        console.log(context.user.socket);
 
         return (
             <div>
                 <h3>CHAT</h3>
+                <button onClick={()=>{
+                    context.user.socket.emit("chat screen")
+                }}> SELAMKE</button>
             </div>
         )
     }

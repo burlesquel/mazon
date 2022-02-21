@@ -5,26 +5,11 @@ import styles from "../styles/Layout.module.css"
 import AuthContext from "../authentication/authContext"
 import { useContext, useEffect, useState } from "react"
 import Loading from "./Loading"
-import { IoLogoWindows } from "react-icons/io5"
 
 
 
 export default function Layout({ children }) {
 
-
-    // useEffect(() => {
-
-    //     window.addEventListener("scroll", () => {
-    //         if (window.scrollY > 90) {
-    //             setNavbarStyle({ div: { height: "3rem" }, img: { display: "none" } })
-
-    //         }
-    //         else {
-    //             setNavbarStyle({ div: { height: "9rem", "margin-bottom":"+=6rem" }, img: { display: "" } })
-    //             window.scrollY = 90+96
-    //         }
-    //     })
-    // }, [])
 
     const context = useContext(AuthContext) // determined value in authcontext provider as props
 
@@ -42,6 +27,7 @@ export default function Layout({ children }) {
                             <Link href={"/"}><h5>Main Page</h5></Link>
                             <Link href={"/products"}><h5>Products</h5></Link>
                             {context.user ? <Link href={"/profile"} ><h5>My Store</h5></Link> : null}
+                            {context.user ? <Link href={"/chat"} ><h5>Messages</h5></Link> : null}
                             {context.user ? null : <a onClick={context.login}>LOGIN/SIGN IN</a>}
                             {context.user ? <a onClick={context.logout}>LOG OUT</a> : null}
                         </div>

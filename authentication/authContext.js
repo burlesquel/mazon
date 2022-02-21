@@ -9,14 +9,14 @@ const AuthContext = createContext()
 
 export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-    const [socketAndIO, setSocketAndIo] = useState(null)
     const [authReady, setAuthReady] = useState(false)
 
     useEffect(() => {
         netlifyIdentity.on("login", (user) => {
-            var socket = io('"https://mazon-server.herokuapp.com/"', {transports: ['websocket', 'polling', 'flashsocket']})
+            var socket = io("http://localhost:8000",{transports: ['websocket'], upgrade: false})
+            
             socket.on("connect", () => {
-                console.log(socket.id); //
+                socket.emit("set socket id", user.id) //
             });
             
             user.socket = socket
@@ -28,6 +28,7 @@ export const AuthContextProvider = ({ children }) => {
         })
 
         netlifyIdentity.on("logout", () => {
+            user.socket.emit("logout")
             setUser(null)
             console.log("Logged out", user);
         })
