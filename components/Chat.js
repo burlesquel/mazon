@@ -2,30 +2,30 @@ import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from "react"
 import AuthContext from '../authentication/authContext';
 import styles from "../styles/Chat.module.css"
+var key = 0
 
 const Conversations = ({ userid }) => {
     const [conversations, setConversations] = useState([]) // TO RENDER NEW CONVERSATIONS DYNAMICALLY
-    useEffect(() => {
-        fetch(`http://localhost:8000/conversations?people=${userid}`).then(r => {
-            r.json().then(data => {
-                console.log("DATA: ", data);
-                if (data === []) {
-                    setConversations("EMPTY ARRAY")
-                }
-                else {
-                    console.log("DATA:",data);
-                    setConversations(data)
-                }
+    fetch(`http://localhost:8000/conversations?people=${userid}`).then(r => {
+        r.json().then(data => {
+            console.log("DATA: ", data);
+            if (data === []) {
+                setConversations("EMPTY ARRAY")
+            }
+            else {
+                console.log("DATA:", data);
+                setConversations(data)
+            }
 
-            })
         })
-    }, [])
+    })
 
     return (
         <div>
-            {conversations.map((conversation)=>{
-                return(
-                    <div>
+            {conversations.map((conversation) => {
+                key++
+                return (
+                    <div key={key}>
                         <p>between {conversation.people[0]} and {conversation.people[1]}</p>
                     </div>
                 )
@@ -50,7 +50,7 @@ export default function Chat() {
             <div className={styles.main}>
 
                 <div className={styles.conversationsMainContainer}>
-                    
+
                     <div>
                         <Conversations userid={context.user.id} />
                     </div>
