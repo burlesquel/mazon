@@ -21,7 +21,7 @@ const addComment = async(event, context, router, productid) =>{
 
     console.log(com);
   
-    await axios.post('https://mazon-server.herokuapp.com/addcomment', com).then(res => {
+    await axios.post('http://localhost:8000/addcomment', com).then(res => {
         console.log(res);
         router.push(`/product/${productid}`)
     })

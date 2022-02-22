@@ -3,6 +3,7 @@
     top: 0;
     width: 100%;
     z-index: 5;
+    user-select: none;
 }
 
 .navbar{
@@ -27,11 +28,42 @@
 
 .linksdiv > *{
     cursor: pointer;
+    flex: 1;
+    text-align: center;
 }
 
 .linksdiv > *:hover{
     text-decoration: underline;
 }
+
+/* PROFILE BUTTON DROPDOWN */
+
+.PDDMainContainer{
+    position: relative;
+}
+
+.PDDropdown{
+    position: absolute;
+    background-color: azure;
+    color: black;
+    width: 80%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+}
+
+.PDDropdown > *{
+    width: 100%;
+    margin-top: 0.1rem;
+    margin-bottom: .1rem;
+}
+
+.PDDropdown > *:hover{
+    background-color: bisque;
+   
+}
+
+/* PROFILE BUTTON DROPDOWN */
 
 .logodiv{
     flex: 1;
@@ -93,10 +125,6 @@
     margin-left: auto;
     margin-right: auto;
 }
-
-/* .ul {
-    
-} */
 
 .footerLogoContainer{
     position: relative;

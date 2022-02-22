@@ -1,0 +1,17 @@
+.main{
+    border: 2px solid black;
+    background-color: aliceblue;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+}
+
+.conversationsMainContainer{
+    display: flex;
+    border: 2px solid black;
+    flex: 1;
+}
+
+.mainChatContainer{
+    flex:4
+}

@@ -1,4 +1,4 @@
-const { generateId, uploadImage, Product, categoryStructure, TechnicalDetailsStructure, addProduct, EachDetail, TechnicalDetailsForm } = require("../data-management/addProductFunctions")
+const { categoryStructure, addProduct, TechnicalDetailsForm } = require("../data-management/addProductFunctions")
 
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from "react"

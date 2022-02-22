@@ -5,8 +5,35 @@ import styles from "../styles/Layout.module.css"
 import AuthContext from "../authentication/authContext"
 import { useContext, useEffect, useState } from "react"
 import Loading from "./Loading"
+import { IoPersonCircleSharp } from "react-icons/io5";
 
+const ProfileDropdown = ({ context }) => {
+    const [open, setOpen] = useState(false)
+    const setNewMessages = context.setNewMessages
+    const newMessages = context.newMessages
+    console.log(newMessages, setNewMessages);
+    return (
 
+        <div className={styles.PDDMainContainer}>
+
+            <div onClick={() => { setOpen(!open) }} className={styles.PDDButton}>
+                <h3>
+                    <IoPersonCircleSharp />
+                </h3>
+            </div>
+
+            {open &&
+                <div className={styles.PDDropdown}>
+                    <div> <Link href={"/profile"}>Profile</Link></div>
+                    <div onClick={() => { console.log("PRESSED LOGOUT"); context.logout() }}> Logout</div>
+
+                </div>
+            }
+
+        </div>
+
+    )
+}
 
 export default function Layout({ children }) {
 
@@ -18,7 +45,7 @@ export default function Layout({ children }) {
 
             <div className={styles.mainNavContainer}>
                 <navbar className={styles.navbar}>
-                    <div  className={styles.logodiv}>
+                    <div className={styles.logodiv}>
                         <Link href={"/"}><Image alt="image" className={styles.logo} src={"https://i.ibb.co/6btqxHd/Mazon-logos-white.png"} objectFit="contain" layout="fill" /></Link>
                     </div>
 
@@ -26,21 +53,20 @@ export default function Layout({ children }) {
                         <div className={styles.linksdiv}>
                             <Link href={"/"}><h5>Main Page</h5></Link>
                             <Link href={"/products"}><h5>Products</h5></Link>
-                            {context.user ? <Link href={"/profile"} ><h5>My Store</h5></Link> : null}
                             {context.user ? <Link href={"/chat"} ><h5>Messages</h5></Link> : null}
                             {context.user ? null : <a onClick={context.login}>LOGIN/SIGN IN</a>}
-                            {context.user ? <a onClick={context.logout}>LOG OUT</a> : null}
+                            {context.user ? <ProfileDropdown context={context} /> : null}
                         </div>
                     )
                         :
                         <div className={styles.linksdiv}>
-                            <Loading/>
-                            <Loading/>
-                            <Loading/>
-                            <Loading/>
-                            <Loading/>
+                            <Loading />
+                            <Loading />
+                            <Loading />
+                            <Loading />
+                            <Loading />
                         </div>
-                        }
+                    }
                 </navbar>
                 <CategoriesNavbar />
             </div>

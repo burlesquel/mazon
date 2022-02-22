@@ -1,22 +1,73 @@
+const axios = require("axios")
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from 'next/router';
 import styles from "../../styles/[id].module.css"
 import TechnicalDetails from "../../components/TechnicalDetails"
-import { IoCheckmarkDoneSharp, IoPersonCircleSharp, IoStarSharp, IoMail } from "react-icons/io5";
-import { useState, useContext } from "react"
+import { IoCheckmarkDoneSharp, IoPersonCircleSharp, IoStarSharp, IoMail, IoCloseCircleSharp } from "react-icons/io5";
+import { useContext, useEffect, useState } from "react"
 import AuthContext from "../../authentication/authContext";
 import { addComment } from "../../data-management/addCommentFunctions";
+import { Conversation, Message } from "../../data-management/messageFunctions";
+
 
 
 
 export default function Product({ product }) {
 
+  const [messagePopup, setMessagePopup] = useState(false)
+
   const router = useRouter()
   const context = useContext(AuthContext)
 
+  const newConversation = (message) => {
+    const startedID = context.user.id
+    const targetUserID = product.owner.id
+    const firstMessage = new Message(startedID, targetUserID, Date.now(), message)
+    // context.user.socket.emit("message",message)
+    console.log("Starter: ", startedID, ",", "Target User: ", targetUserID);
+    const conversation = new Conversation(startedID, targetUserID) // ....people:[person1id:STARTER, person2id:TARGETUSER]....
+    conversation.messages.push(firstMessage)
+    context.user.socket.emit("new conversation to server", conversation)
+
+  }
+
+  const messageSubmitHandler = (event) =>{
+    event.preventDefault()
+    event.target
+    const {messageBox} = event.target
+    const message = messageBox.value
+    event.target.messageBox.value = ""
+    newConversation(message)
+    
+  }
+
+  useEffect(() => {
+    document.addEventListener("keydown", (event) => { if (event.key === "Escape") { setMessagePopup(false) } }, false)
+  }, [])
+
   return (
-    <div>
+    <div className={styles.main}>
+
+      {messagePopup &&
+        <div className={styles.popupMainContainer}>
+          <div className={styles.popupContainer}>
+
+            <h4 onClick={() => { setMessagePopup(false) }} className={styles.crossButton}><IoCloseCircleSharp /></h4>
+
+            <h4>New message to: <strong>{product.owner.name}</strong> </h4>
+
+            <form method="post" onSubmit={messageSubmitHandler}>
+
+              <textarea name="messageBox" placeholder="Your message.." className="form-control"></textarea>
+              <button className="btn btn-primary"> Send </button>
+
+            </form>
+
+
+
+          </div>
+        </div>}
 
       <div className={styles.categoryNavigation}>
         <Link href={`/category/${product.category}`}>{product.category}</Link> &gt; <Link href={`/category/${product.category}/${product.subcategory}`}>{product.subcategory}</Link>
@@ -54,7 +105,7 @@ export default function Product({ product }) {
 
               </div>
 
-              <div className={styles.sendMessageContainer}>
+              <div onClick={() => { setMessagePopup(true) }} className={styles.sendMessageContainer}>
                 <IoMail /> Send message
               </div>
 
@@ -81,14 +132,14 @@ export default function Product({ product }) {
               <textarea className={`${styles.textArea} form-control`} id="comment" name="comment" autoComplete="comment" required></textarea>
               <button className="btn btn-primary" type="submit">Send</button>
             </form>}
-            
+
           </div>
 
           <div className={styles.commentsContainer}>
             {product.ratings.comments.length > 0 && product.ratings.comments.map((comment) => {
               return (
                 // KEY AYARLA
-                <div key={parseInt(Math.random() * 100000)}> 
+                <div key={parseInt(Math.random() * 100000)}>
                   <h7>{comment.userName}</h7>
                   <p>{comment.comment}</p>
                   <span> <em>{comment.date}</em> </span>

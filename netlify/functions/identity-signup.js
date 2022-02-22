@@ -1,5 +1,7 @@
 const axios = require('axios')
 
+const fetchURL = "http://localhost:8000/adduser"
+
 
 class User {
     constructor(id, email, name, role, confirmation_done_at) {
@@ -18,7 +20,7 @@ const addUser = async (user) => {
     const newUser = new User(user.id, user.email, user.user_metadata.full_name, user.role, user.confirmation_sent_at)
     const res = await axios({ // ADD NEW USER TO DATABASE WITH SENDING POST REQUEST TO MAIN SERVER
         method: 'post',
-        url: 'https://mazon-server.herokuapp.com/adduser',
+        url: fetchURL,
         data: newUser
     })
     console.log(newUser);
@@ -27,7 +29,7 @@ const addUser = async (user) => {
 
 
 exports.handler = async function (event) {
-
+        console.log(event);
         const { user } = JSON.parse(event.body)
         console.log(user);
         await addUser(user)
