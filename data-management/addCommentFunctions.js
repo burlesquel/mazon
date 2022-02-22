@@ -1,5 +1,7 @@
 const axios = require("axios")
 
+const serverURL = "https://mazon-server.herokuapp.com/"
+
 class Comment_{
     constructor(userID, date, comment, productid, userName){
         this.userID = userID
@@ -21,7 +23,7 @@ const addComment = async(event, context, router, productid) =>{
 
     console.log(com);
   
-    await axios.post('http://localhost:8000/addcomment', com).then(res => {
+    await axios.post(serverURL, com).then(res => {
         console.log(res);
         router.push(`/product/${productid}`)
     })

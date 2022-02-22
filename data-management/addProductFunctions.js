@@ -1,5 +1,7 @@
 const axios = require("axios")
 
+const serverURL = "https://mazon-server.herokuapp.com/"
+
 import styles from "../styles/New_product.module.css"
 
 // const imgbbPostLink = "https://api.imgbb.com/1/upload&key=c0da0fd8e2f81e366f0e06c96e60c889"
@@ -117,7 +119,7 @@ const addProduct = async (event, router, context) => {
   product_.details = rest
   console.log(product_);
 
-  await axios.post('http://localhost:8000/addproduct', product_).then(res => {
+  await axios.post(serverURL, product_).then(res => {
       console.log(res);
       router.push(`/product/${id}`)
   })

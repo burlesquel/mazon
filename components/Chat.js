@@ -6,7 +6,7 @@ var key = 0
 
 const Conversations = ({ userid }) => {
     const [conversations, setConversations] = useState([]) // TO RENDER NEW CONVERSATIONS DYNAMICALLY
-    fetch(`http://localhost:8000/conversations?people=${userid}`).then(r => {
+    fetch(`https://mazon-server.herokuapp.com/conversations?people=${userid}`).then(r => {
         r.json().then(data => {
             console.log("DATA: ", data);
             if (data === []) {

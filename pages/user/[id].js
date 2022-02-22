@@ -4,6 +4,7 @@
 // import CategoriesNavbar from "../../components/CategoriesNavbar/CategoriesNavbar"
 // import TechnicalDetails from "../../components/TechnicalDetails"
 
+const serverURL = "https://mazon-server.herokuapp.com"
 
 export default function Product({ user }) {
 
@@ -17,7 +18,7 @@ export default function Product({ user }) {
 
 export async function getServerSideProps({ params }) {
   const id = params.id
-  const user = await fetch(`https://mazon-server.herokuapp.com/user?id=${id}`).then(r => r.json())
+  const user = await fetch(`${serverURL}/user?id=${id}`).then(r => r.json())
   return {
     props: {
       user,

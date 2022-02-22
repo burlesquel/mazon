@@ -16,7 +16,7 @@ export const AuthContextProvider = ({ children }) => {
     useEffect(() => {
         netlifyIdentity.on("login", (user) => {
         
-            var socket = io("http://localhost:8000",{transports: ['websocket'], upgrade: false})
+            var socket = io("https://mazon-server.herokuapp.com",{transports: ['websocket'], upgrade: false})
         
             user.socket = socket
             user.io = io

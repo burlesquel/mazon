@@ -10,6 +10,7 @@ import AuthContext from "../../authentication/authContext";
 import { addComment } from "../../data-management/addCommentFunctions";
 import { Conversation, Message } from "../../data-management/messageFunctions";
 
+const serverURL = "https://mazon-server.herokuapp.com"
 
 
 
@@ -160,7 +161,7 @@ export default function Product({ product }) {
 
 export async function getServerSideProps({ params }) {
   const id = params.id
-  const products = await fetch(`https://mazon-server.herokuapp.com/products?id=${id}`).then(r => r.json())
+  const products = await fetch(`${serverURL}/products?id=${id}`).then(r => r.json())
   const product = products[0]
   return {
     props: {

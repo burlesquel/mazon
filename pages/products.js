@@ -4,10 +4,11 @@ import Loading from "../components/Loading"
 import Product from "../components/Product"
 import styles from "../styles/Products.module.css"
 
+const serverURL = "https://mazon-server.herokuapp.com"
 
 export async function getServerSideProps() {
 
-  const products = await fetch(`https://mazon-server.herokuapp.com/products`).then(r => r.json())
+  const products = await fetch(`${serverURL}/products`).then(r => r.json())
 
   return {
     props: {
