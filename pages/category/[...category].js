@@ -1,7 +1,7 @@
 import Product from "../../components/Product"
 import styles from "../../styles/Products.module.css"
 
-const serverURL = "http://localhost:8000"
+const serverURL = "https://mazon-server.herokuapp.com"
 
 export default function Category({ products }) {
 

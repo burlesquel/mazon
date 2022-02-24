@@ -1,6 +1,6 @@
 const axios = require("axios")
 
-const serverURL = "http://localhost:8000"
+const serverURL = "https://mazon-server.herokuapp.com"
 
 class Comment_{
     constructor(userID, date, comment, productid, userName){

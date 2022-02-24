@@ -10,7 +10,7 @@ import AuthContext from "../../authentication/authContext";
 import { addComment } from "../../data-management/addCommentFunctions";
 import { Conversation, Message } from "../../data-management/messageFunctions";
 
-const serverURL = "http://localhost:8000"
+const serverURL = "https://mazon-server.herokuapp.com"
 
 
 
