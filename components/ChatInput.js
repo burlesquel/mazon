@@ -44,7 +44,7 @@ export default function ChatInput() {
 
     return (
         <form onSubmit={() => { newMessageHandler(event) }} className={styles.inputBox}>
-            <input className={styles.input} name="message" type="text" className="form-control" />
+            <input  name="message" type="text" className="form-control" />
             <button type="submit" className='btn btn-primary'>SEND</button>
         </form>
     )
