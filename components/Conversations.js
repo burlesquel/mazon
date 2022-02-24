@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import AuthContext from '../authentication/authContext';
 import styles from "../styles/Chat.module.css"
 var key = 500
-const serverURL = "http://localhost:8000"
+const serverURL = "https://mazon-server.herokuapp.com"
 
 
 export default function Conversations() {

@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from "react"
 import netlifyIdentity from "netlify-identity-widget"
 import { io } from "socket.io-client";
 
-const serverURL = "http://localhost:8000"
+const serverURL = "https://mazon-server.herokuapp.com"
 
 const axios = require("axios")
 
