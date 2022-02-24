@@ -1,16 +1,54 @@
 class Message {
-    constructor(senderID, receiverID, time, content) {
-        this.senderID = senderID
-        this.receiverID = receiverID
+    constructor(senderID, senderName, receiverID, receiverName, time, content) {
+        this.sender = { id: senderID, name: senderName }
+        this.receiver = { id: receiverID, name: receiverName }
         this.time = time
         this.content = content
+        this.between = [senderID, receiverID]
+        this.me = function (id) {
+            if (this.sender.id === id) {
+                return this.sender
+            }
+            else {
+                return this.receiver
+            }
+        }
+        this.oppositeSide = function (id) {
+            if (this.sender.id === id) {
+                return this.receiver
+            }
+            else {
+                return this.sender
+            }
+        }
     }
 }
 
 class Conversation {
-    constructor(person1id, person2id) {
-        this.people = [person1id, person2id]
+    constructor(starterID, starterName, receiverID, receiverName) {
+        this.people = {
+            starter: { id: starterID, name: starterName, avatar: "https://i.ibb.co/zGz78ff/1595800322946-Avatar-Meme.png" },
+            receiver: { id: receiverID, name: receiverName, avatar: "https://i.ibb.co/zGz78ff/1595800322946-Avatar-Meme.png" }
+        }
+        this.id = String(String(starterID) + String(receiverID))
+        this.between = [starterID, receiverID]
         this.messages = [] // FULL OF MESSAGE OBJECTS
+        this.me = function (id) {
+            if (this.people.starter.id === id) {
+                return this.people.starter
+            }
+            else {
+                return this.people.receiver
+            }
+        }
+        this.oppositeSide = function (id) {
+            if (this.people.starter.id === id) {
+                return this.people.receiver
+            }
+            else {
+                return this.people.starter
+            }
+        }
     }
 }
 

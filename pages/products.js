@@ -4,7 +4,7 @@ import Loading from "../components/Loading"
 import Product from "../components/Product"
 import styles from "../styles/Products.module.css"
 
-const serverURL = "https://mazon-server.herokuapp.com"
+const serverURL = "http://localhost:8000"
 
 export async function getServerSideProps() {
 

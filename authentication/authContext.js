@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from "react"
 import netlifyIdentity from "netlify-identity-widget"
 import { io } from "socket.io-client";
 
+const serverURL = "http://localhost:8000"
 
 const axios = require("axios")
 
@@ -11,28 +12,23 @@ export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [authReady, setAuthReady] = useState(false)
 
-    const [newMessages, setNewMessages] = useState([])
+    const [currentConversation, setCurrentConversation] = useState(null)
 
     useEffect(() => {
         netlifyIdentity.on("login", (user) => {
         
-            var socket = io("https://mazon-server.herokuapp.com",{transports: ['websocket'], upgrade: false})
+            var socket = io(serverURL,{transports: ['websocket'], upgrade: false})
         
             user.socket = socket
             user.io = io
-            user.messages = {newMessages:newMessages, setNewMessages:setNewMessages, amount:0}
-
 
             setUser(user)
             netlifyIdentity.close()
             console.log("Logged in.", user);
+            console.log("Current conversation: ", currentConversation);
 
             socket.on("connect", () => {
                 socket.emit("set socket id", user.id) //
-                socket.on("message feedback to user",(message)=>{
-                    console.log("NEW MESSAGE: ", message);
-                    setNewMessages([...newMessages, message])
-                })
             });
 
         })
@@ -78,7 +74,8 @@ export const AuthContextProvider = ({ children }) => {
         login: login,
         logout: logout,
         authReady: authReady,
-
+        currentConversation : currentConversation,
+        setCurrentConversation: setCurrentConversation
     }
 
     return (

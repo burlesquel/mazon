@@ -4,7 +4,7 @@
 // import CategoriesNavbar from "../../components/CategoriesNavbar/CategoriesNavbar"
 // import TechnicalDetails from "../../components/TechnicalDetails"
 
-const serverURL = "https://mazon-server.herokuapp.com"
+const serverURL = "http://localhost:8000"
 
 export default function Product({ user }) {
 

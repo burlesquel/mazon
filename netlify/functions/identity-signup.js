@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-const fetchURL = "https://mazon-server.herokuapp.com/"
+const fetchURL = "http://localhost:8000"
 
 
 class User {

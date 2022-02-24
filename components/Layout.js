@@ -8,10 +8,18 @@ import Loading from "./Loading"
 import { IoPersonCircleSharp } from "react-icons/io5";
 
 const ProfileDropdown = ({ context }) => {
+    const socket = context.user.socket
+
+    useEffect(()=>{
+        socket.on("message feedback to user",(message)=>{
+            console.log("NEW MESSAGE (from Layout.js): ", message);
+        })
+    },[])
+
+
+
     const [open, setOpen] = useState(false)
-    const setNewMessages = context.setNewMessages
-    const newMessages = context.newMessages
-    console.log(newMessages, setNewMessages);
+
     return (
 
         <div className={styles.PDDMainContainer}>
@@ -44,7 +52,7 @@ export default function Layout({ children }) {
         <section>
 
             <div className={styles.mainNavContainer}>
-                <navbar className={styles.navbar}>
+                <div className={styles.navbar}>
                     <div className={styles.logodiv}>
                         <Link href={"/"}><Image alt="image" className={styles.logo} src={"https://i.ibb.co/6btqxHd/Mazon-logos-white.png"} objectFit="contain" layout="fill" /></Link>
                     </div>
@@ -67,7 +75,7 @@ export default function Layout({ children }) {
                             <Loading />
                         </div>
                     }
-                </navbar>
+                </div>
                 <CategoriesNavbar />
             </div>
 
@@ -77,7 +85,7 @@ export default function Layout({ children }) {
 
             {children}
 
-            <footer className={styles.footer}>
+            <div className={styles.footer}>
                 <div className={styles.footerLogoContainer}><Image alt="image" className={styles.logo} src={"https://i.ibb.co/6btqxHd/Mazon-logos-white.png"} objectFit="contain" layout="fill" /></div>
                 <div>
                     <h5>ABOUT US</h5>
@@ -109,7 +117,7 @@ export default function Layout({ children }) {
                         <li>Help</li>
                     </ul>
                 </div>
-            </footer>
+            </div>
 
         </section>
     )

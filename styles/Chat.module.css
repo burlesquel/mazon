@@ -4,14 +4,51 @@
     width: 100%;
     height: 80vh;
     display: flex;
+    flex-direction: column;
+}
+
+.convosAndChat{
+    display: flex;
+    flex: 4;
 }
 
 .conversationsMainContainer{
     display: flex;
     border: 2px solid black;
     flex: 1;
-}
+    width: 100%;}
 
 .mainChatContainer{
-    flex:4
+    flex:4;
+}
+
+.mainChatContainer > div{
+    overflow-y: scroll;
+}
+
+.eachConvo{
+    border: 2px solid black;
+    cursor: pointer;
+    width: 100%;}
+
+.conversationsMainContainer div {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 0.5rem ;
+
+}
+
+.inputBox{
+    flex: 1.3;
+    display: flex;
+    border: 2px solid black;
+    padding: 0.3rem;
+}
+
+.inputBox input{
+    flex: 5;
+}
+
+.inputBox button{
+    flex: 1;
 }

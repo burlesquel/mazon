@@ -10,7 +10,7 @@ import AuthContext from "../../authentication/authContext";
 import { addComment } from "../../data-management/addCommentFunctions";
 import { Conversation, Message } from "../../data-management/messageFunctions";
 
-const serverURL = "https://mazon-server.herokuapp.com"
+const serverURL = "http://localhost:8000"
 
 
 
@@ -22,12 +22,14 @@ export default function Product({ product }) {
   const context = useContext(AuthContext)
 
   const newConversation = (message) => {
-    const startedID = context.user.id
+    const starterID = context.user.id
+    const starterName = context.user.user_metadata.full_name
     const targetUserID = product.owner.id
-    const firstMessage = new Message(startedID, targetUserID, Date.now(), message)
+    const targetUserName = product.owner.name
+    const firstMessage = new Message(starterID, starterName, targetUserID, targetUserName, Date.now(), message) // THE ONE WHO CREATES THE CONVO IS ALSO THE FIRST SENDER OF THE FIRST MESSAGE
     // context.user.socket.emit("message",message)
-    console.log("Starter: ", startedID, ",", "Target User: ", targetUserID);
-    const conversation = new Conversation(startedID, targetUserID) // ....people:[person1id:STARTER, person2id:TARGETUSER]....
+    console.log("Starter: ", starterID, ",", "Target User: ", targetUserID);
+    const conversation = new Conversation(starterID, starterName, targetUserID, targetUserName)
     conversation.messages.push(firstMessage)
     context.user.socket.emit("new conversation to server", conversation)
 
