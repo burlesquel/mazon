@@ -119,7 +119,7 @@ const addProduct = async (event, router, context) => {
   product_.details = rest
   console.log(product_);
 
-  await axios.post(serverURL, product_).then(res => {
+  await axios.post(`${serverURL}/addproduct`, product_).then(res => {
       console.log(res);
       router.push(`/product/${id}`)
   })
