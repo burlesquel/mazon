@@ -23,7 +23,7 @@ const addComment = async(event, context, router, productid) =>{
 
     console.log(com);
   
-    await axios.post(serverURL, com).then(res => {
+    await axios.post(`${serverURL}/addcomment`, com).then(res => {
         console.log(res);
         router.push(`/product/${productid}`)
     })
