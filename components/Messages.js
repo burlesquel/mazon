@@ -56,7 +56,7 @@ export default function Messages() {
         <div ref={scrollRef}>
           {context.currentConversation.messages.map(message => {
             key++
-            return (<EachMessage message={message} context={context} />)
+            return (<EachMessage key={key} message={message} context={context} />)
           })}
         </div>
       }
