@@ -32,6 +32,7 @@ export default function ChatInput() {
                 context.user.socket.emit("message",message)
             }
         }
+        event.target.message.value = ""
 
         
         // context.user.socket.emit("message", )
@@ -43,7 +44,7 @@ export default function ChatInput() {
 
     return (
         <form onSubmit={() => { newMessageHandler(event) }} className={styles.inputBox}>
-            <input name="message" type="text" className="form-control" />
+            <input className={styles.input} name="message" type="text" className="form-control" />
             <button type="submit" className='btn btn-primary'>SEND</button>
         </form>
     )

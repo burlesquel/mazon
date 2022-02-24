@@ -1,10 +1,31 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useRef } from "react"
 import AuthContext from '../authentication/authContext';
 import styles from "../styles/Chat.module.css"
 
 var key = 800
 
+const EachMessage = ({ message, context }) => {
+  if (message.sender.id === context.user.id) {
+    return (
+      <div className={styles.eachMessageSelf} key={key}>
+        <span><strong>{message.sender.name}: </strong></span>
+        <span>{message.content}</span>
+      </div>
+    )
+  }
+  else {
+    return (
+      <div className={styles.eachMessageOpposite} key={key}>
+        <span><strong>{message.sender.name}: </strong></span>
+        <span>{message.content}</span>
+      </div>
+    )
+  }
+
+}
+
 export default function Messages() {
+  const scrollRef = useRef(null)
   console.log("Messages.js rendered");
 
   const context = useContext(AuthContext)
@@ -13,40 +34,29 @@ export default function Messages() {
   // var targetUser = null
   // var me = null
 
-  // {context.currentConversation.messages.map((message)=>{
-  //   key++
-  //   return(<div key={key}>
-  //     <span><strong>{message.sender.name}: </strong></span>
-  //     <span>{message.content}</span>
-  //      </div>)}
-
-  useEffect(()=>{
-    context.user.socket.on("message feedback to user",(message)=>{
+  useEffect(() => {
+    context.user.socket.on("message feedback to user", (message) => {
       console.log("message feedback received from socket");
-      context.setCurrentConversation(previous =>{
-        if(previous === null){
+      context.setCurrentConversation(previous => {
+        if (previous === null) {
           console.log("ERROR CURRENT CONVO IS NULL SOMETHING WENT WRONG");
-        }else{
-          const newList = {...previous}
+        } else {
+          const newList = { ...previous }
           newList.messages.push(message)
           return newList
         }
       })
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight
     })
-    
-
-},[])
+  }, [])
 
   return (
     <div className={styles.mainChatContainer}>
       {context.currentConversation === null ? <div> SELECT A CONVERSATION </div> :
-        <div>
-           {context.currentConversation.messages.map(message => {
+        <div ref={scrollRef}>
+          {context.currentConversation.messages.map(message => {
             key++
-            return (<div key={key}>
-              <span><strong>{message.sender.name}: </strong></span>
-              <span>{message.content}</span>
-            </div>)
+            return (<EachMessage message={message} context={context} />)
           })}
         </div>
       }

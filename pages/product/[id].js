@@ -10,7 +10,7 @@ import AuthContext from "../../authentication/authContext";
 import { addComment } from "../../data-management/addCommentFunctions";
 import { Conversation, Message } from "../../data-management/messageFunctions";
 
-const serverURL = "https://mazon-server.herokuapp.com"
+const serverURL = "http://localhost:8000"
 
 
 
@@ -37,11 +37,13 @@ export default function Product({ product }) {
 
   const messageSubmitHandler = (event) =>{
     event.preventDefault()
-    event.target
-    const {messageBox} = event.target
-    const message = messageBox.value
-    event.target.messageBox.value = ""
-    newConversation(message)
+
+
+      const {messageBox} = event.target
+      const message = messageBox.value
+      event.target.messageBox.value = ""
+      newConversation(message)
+
     
   }
 
@@ -108,7 +110,15 @@ export default function Product({ product }) {
 
               </div>
 
-              <div onClick={() => { setMessagePopup(true) }} className={styles.sendMessageContainer}>
+              <div onClick={() => { 
+                    if(product.owner.id === context.user.id){
+                      alert("You cannot send message to yourself")
+                    }
+                    else{
+                      setMessagePopup(true) 
+                    }
+                
+                }} className={styles.sendMessageContainer}>
                 <IoMail /> Send message
               </div>
 

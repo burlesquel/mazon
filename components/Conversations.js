@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import AuthContext from '../authentication/authContext';
 import styles from "../styles/Chat.module.css"
 var key = 500
-const serverURL = "https://mazon-server.herokuapp.com"
+const serverURL = "http://localhost:8000"
 
 
 export default function Conversations() {
@@ -32,7 +32,7 @@ export default function Conversations() {
                 key++
                 return (
                     <div onClick={()=>{context.setCurrentConversation(conversation);}} className={styles.eachConvo} key={key}>
-                        With {conversation.people.starter.id === context.user.id ? conversation.people.receiver.name : conversation.people.starter.name}
+                      <h5>  {conversation.people.starter.id === context.user.id ? conversation.people.receiver.name : conversation.people.starter.name} </h5>
                     </div>
                 )
             })}</div>}
