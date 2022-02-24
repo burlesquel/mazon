@@ -1,26 +1,12 @@
 class Message {
-    constructor(senderID, senderName, receiverID, receiverName, time, content) {
-        this.sender = { id: senderID, name: senderName }
-        this.receiver = { id: receiverID, name: receiverName }
+    constructor(senderID, senderName, receiverID, receiverName, time, content, product = null, avatar) {
+        this.sender = { id: senderID, name: senderName, avatar: avatar }
+        this.receiver = { id: receiverID, name: receiverName, avatar: avatar }
         this.time = time
         this.content = content
         this.between = [senderID, receiverID]
-        this.me = function (id) {
-            if (this.sender.id === id) {
-                return this.sender
-            }
-            else {
-                return this.receiver
-            }
-        }
-        this.oppositeSide = function (id) {
-            if (this.sender.id === id) {
-                return this.receiver
-            }
-            else {
-                return this.sender
-            }
-        }
+        this.product = product
+        this.avatar = avatar
     }
 }
 
@@ -33,22 +19,6 @@ class Conversation {
         this.id = String(String(starterID) + String(receiverID))
         this.between = [starterID, receiverID]
         this.messages = [] // FULL OF MESSAGE OBJECTS
-        this.me = function (id) {
-            if (this.people.starter.id === id) {
-                return this.people.starter
-            }
-            else {
-                return this.people.receiver
-            }
-        }
-        this.oppositeSide = function (id) {
-            if (this.people.starter.id === id) {
-                return this.people.receiver
-            }
-            else {
-                return this.people.starter
-            }
-        }
     }
 }
 

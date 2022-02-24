@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef } from "react"
 import AuthContext from '../authentication/authContext';
 import styles from "../styles/Chat.module.css"
+import Image from 'next/image'
 
 var key = 800
 
@@ -8,6 +9,7 @@ const EachMessage = ({ message, context }) => {
   if (message.sender.id === context.user.id) {
     return (
       <div className={styles.eachMessageSelf} key={key}>
+        <Image alt="avatar" src={message.avatar}/>
         <span><strong>{message.sender.name}: </strong></span>
         <span>{message.content}</span>
       </div>

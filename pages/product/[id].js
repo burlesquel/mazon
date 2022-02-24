@@ -26,7 +26,7 @@ export default function Product({ product }) {
     const starterName = context.user.user_metadata.full_name
     const targetUserID = product.owner.id
     const targetUserName = product.owner.name
-    const firstMessage = new Message(starterID, starterName, targetUserID, targetUserName, Date.now(), message) // THE ONE WHO CREATES THE CONVO IS ALSO THE FIRST SENDER OF THE FIRST MESSAGE
+    const firstMessage = new Message(starterID, starterName, targetUserID, targetUserName, Date.now(), message, product) // THE ONE WHO CREATES THE CONVO IS ALSO THE FIRST SENDER OF THE FIRST MESSAGE
     // context.user.socket.emit("message",message)
     console.log("Starter: ", starterID, ",", "Target User: ", targetUserID);
     const conversation = new Conversation(starterID, starterName, targetUserID, targetUserName)
@@ -57,7 +57,7 @@ export default function Product({ product }) {
       {messagePopup &&
         <div className={styles.popupMainContainer}>
           <div className={styles.popupContainer}>
-
+                                                               {/* CLOSE BUTTON */}
             <h4 onClick={() => { setMessagePopup(false) }} className={styles.crossButton}><IoCloseCircleSharp /></h4>
 
             <h4>New message to: <strong>{product.owner.name}</strong> </h4>

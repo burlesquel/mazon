@@ -4,14 +4,15 @@ const fetchURL = "https://mazon-server.herokuapp.com"
 
 
 class User {
-    constructor(id, email, name, role, confirmation_done_at) {
+    constructor(id, email, name, role, confirmation_done_at, avatar = "https://i.ibb.co/PM7QGLv/Blank-Man-Profile-Head-Icon-Placeholder.jpg") {
         this.id = id
         this.email = email
         this.name = name
         this.role = role
         this.confirmation_done_at = confirmation_done_at
-        this.stores = []
-
+        this.products = []
+        this.comments = []
+        this.avatar = avatar
     }
 }
 
