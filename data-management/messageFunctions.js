@@ -11,10 +11,10 @@ class Message {
 }
 
 class Conversation {
-    constructor(starterID, starterName, receiverID, receiverName) {
+    constructor(starterID, starterName, receiverID, receiverName, starterAvatar, receiverAvatar) {
         this.people = {
-            starter: { id: starterID, name: starterName, avatar: "https://i.ibb.co/zGz78ff/1595800322946-Avatar-Meme.png" },
-            receiver: { id: receiverID, name: receiverName, avatar: "https://i.ibb.co/zGz78ff/1595800322946-Avatar-Meme.png" }
+            starter: { id: starterID, name: starterName, avatar: null },
+            receiver: { id: receiverID, name: receiverName, avatar: null }
         }
         this.id = String(String(starterID) + String(receiverID))
         this.between = [starterID, receiverID]

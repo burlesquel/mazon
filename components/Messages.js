@@ -6,10 +6,11 @@ import Image from 'next/image'
 var key = 800
 
 const EachMessage = ({ message, context }) => {
+  console.log("Each message rendered: ", message);
   if (message.sender.id === context.user.id) {
     return (
       <div className={styles.eachMessageSelf} key={key}>
-        <Image alt="avatar" src={message.avatar}/>
+        {/* <Image alt="avatar" src={message.avatar}/> */}
         <span><strong>{message.sender.name}: </strong></span>
         <span>{message.content}</span>
       </div>
@@ -18,6 +19,7 @@ const EachMessage = ({ message, context }) => {
   else {
     return (
       <div className={styles.eachMessageOpposite} key={key}>
+        {/* <Image alt="avatar" src={message.avatar}/> */}
         <span><strong>{message.sender.name}: </strong></span>
         <span>{message.content}</span>
       </div>
