@@ -55,12 +55,10 @@
 }
 
 .eachMessageSelf{
-    text-align: right;
     padding-right: 1rem;
 }
 
 .eachMessageOpposite{
-    text-align: left;
     padding-left: 1rem;
 }
 
@@ -68,8 +66,13 @@
     font-size: 1.2rem;
     padding: 0.5rem;
     border: 1px solid rgb(228, 228, 206);
+    
     background-color: #fff;
     position: relative;
+}
+
+.messageAvatar{
+    margin-left: 0.6rem;
 }
 
 .inputBox{

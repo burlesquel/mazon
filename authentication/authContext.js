@@ -22,9 +22,10 @@ export const AuthContextProvider = ({ children }) => {
         
             user.socket = socket
             user.io = io
-            user.avatar = userAvatar
-            user.setAvatar = setUserAvatar
             
+            fetch(`${serverURL}/user?id=${user.id}`).then(res=>{res.json().then(user_=>{
+                setUserAvatar(user_.avatar)
+            })})
 
             setUser(user)
             netlifyIdentity.close()
@@ -79,7 +80,9 @@ export const AuthContextProvider = ({ children }) => {
         logout: logout,
         authReady: authReady,
         currentConversation : currentConversation,
-        setCurrentConversation: setCurrentConversation
+        setCurrentConversation: setCurrentConversation,
+        avatar : userAvatar, 
+        setUserAvatar: setUserAvatar
     }
 
     return (

@@ -22,12 +22,12 @@ export default function ChatInput() {
             const content = event.target.message.value
 
             if (currentConvo.people.starter.id === context.user.id) { // SELECT THE OPPOSITE OF MY CURRENT ID
-                const message = new Message(currentConvo.people.starter.id, currentConvo.people.starter.name, currentConvo.people.receiver.id, currentConvo.people.receiver.name, Date.now(), content, null, currentConvo.people.starter.avatar)
+                const message = new Message(currentConvo.people.starter.id, currentConvo.people.starter.name, currentConvo.people.receiver.id, currentConvo.people.receiver.name, Date.now(), content, null, context.avatar)
                 console.log(message);
                 context.user.socket.emit("message", message)
             }
             else {
-                const message = new Message(currentConvo.people.receiver.id, currentConvo.people.receiver.name, currentConvo.people.starter.id, currentConvo.people.starter.name, Date.now(), content, null, currentConvo.people.receiver.avatar)
+                const message = new Message(currentConvo.people.receiver.id, currentConvo.people.receiver.name, currentConvo.people.starter.id, currentConvo.people.starter.name, Date.now(), content, null, context.avatar)
                 console.log(message);
                 context.user.socket.emit("message", message)
             }

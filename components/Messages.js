@@ -9,19 +9,18 @@ const EachMessage = ({ message, context }) => {
   console.log("Each message rendered: ", message);
   if (message.sender.id === context.user.id) {
     return (
-      <div className={styles.eachMessageSelf} key={key}>
-        {/* <Image alt="avatar" src={message.avatar}/> */}
-        <span><strong>{message.sender.name}: </strong></span>
-        <span>{message.content}</span>
+      <div className={styles.eachMessageSelf} key={key}> 
+        <Image  src={message.avatar} width={30} height={30}  />
+        <span className={styles.messageAvatar}>{message.content}</span>
+        
       </div>
     )
   }
   else {
     return (
       <div className={styles.eachMessageOpposite} key={key}>
-        {/* <Image alt="avatar" src={message.avatar}/> */}
-        <span><strong>{message.sender.name}: </strong></span>
-        <span>{message.content}</span>
+        <Image  src={message.avatar} width={30} height={30}  />
+        <span className={styles.messageAvatar}>{message.content}</span>
       </div>
     )
   }

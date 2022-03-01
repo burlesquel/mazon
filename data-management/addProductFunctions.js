@@ -118,7 +118,7 @@ const addProduct = async (event, router, context) => {
   var { image } = event.target
   const ownerName = context.user.user_metadata.full_name
   const ownerId = context.user.id
-  const ownerAvatar = context.user.avatar
+  const ownerAvatar = context.avatar
   const id = generateId(8)
   const imageFile = await image.files[0]
   const res = await uploadImage(imageFile)

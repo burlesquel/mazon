@@ -24,7 +24,7 @@ export default function Product({ product }) {
   const newConversation = (message) => {
     const starterID = context.user.id
     const starterName = context.user.user_metadata.full_name
-    const starterAvatar = context.user.avatar
+    const starterAvatar = context.avatar
     const targetUserID = product.owner.id
     const targetUserName = product.owner.name
     const receiverAvatar = product.owner.avatar
