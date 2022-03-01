@@ -11,16 +11,20 @@ const AuthContext = createContext()
 export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [authReady, setAuthReady] = useState(false)
+    const [userAvatar, setUserAvatar] = useState("https://i.ibb.co/Jjv4qr2/Blank-Man-Profile-Head-Icon-Placeholder.jpg")
 
     const [currentConversation, setCurrentConversation] = useState(null)
 
     useEffect(() => {
+        var socket = io(serverURL,{transports: ['websocket'], upgrade: false})
+
         netlifyIdentity.on("login", (user) => {
-        
-            var socket = io(serverURL,{transports: ['websocket'], upgrade: false})
         
             user.socket = socket
             user.io = io
+            user.avatar = userAvatar
+            user.setAvatar = setUserAvatar
+            
 
             setUser(user)
             netlifyIdentity.close()

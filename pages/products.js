@@ -17,10 +17,6 @@ export async function getServerSideProps() {
   }
 }
 
-// links = [{name:"name", href:"href"}]
-
-
-
 export default function Products({ products }) {
   
   return (

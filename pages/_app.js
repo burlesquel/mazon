@@ -1,7 +1,6 @@
 import '../styles/globals.css'
 import Layout from '../components/Layout'
 import { AuthContextProvider } from "../authentication/authContext"
-import { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

@@ -23,6 +23,7 @@ export default function TechnicalDetails({ product }) {
                             <span>
                                 {key.replace("_", " ").toUpperCase()}
                             </span> 
+                            
                             <span>
                                 <strong>{values[valIndex]}</strong> 
                             </span>

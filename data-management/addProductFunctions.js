@@ -6,8 +6,8 @@ import styles from "../styles/New_product.module.css"
 
 // const imgbbPostLink = "https://api.imgbb.com/1/upload&key=c0da0fd8e2f81e366f0e06c96e60c889"
 
-class Product {
-  constructor(id, name, description,age, isItDiscounted, discountAmount, priceWithoutDiscount, isInStock, quantity, brand, category, subcategory, ownerName, ownerId, imgUrl) {
+class  Product {
+  constructor(id, name, description,age, isItDiscounted, discountAmount, priceWithoutDiscount, isInStock, quantity, brand, category, subcategory, ownerName, ownerId, ownerAvatar, imgUrl) {
     this.id = id
     this.name = name
     this.description = description
@@ -27,7 +27,8 @@ class Product {
     this.subcategory = subcategory
     this.owner = {
       "name": ownerName,
-      "id": ownerId
+      "id": ownerId,
+      "avatar": ownerAvatar
     }
     this.image_url = imgUrl
     this.ratings = {
@@ -55,6 +56,12 @@ function uploadImage(img) {
     data: body
   })
 }
+
+const getAvatar = async (userID) =>{
+  return fetch(`${serverURL}/user?id=${userID}`).then(res => res.json().then(user=>{
+    return user.avatar
+  }))
+} 
 
 const categoryStructure = {
   "external-utilities": ["keyboards", "printers", "mouse", "speakers", "monitors"],
@@ -111,11 +118,12 @@ const addProduct = async (event, router, context) => {
   var { image } = event.target
   const ownerName = context.user.user_metadata.full_name
   const ownerId = context.user.id
+  const ownerAvatar = context.user.avatar
   const id = generateId(8)
   const imageFile = await image.files[0]
   const res = await uploadImage(imageFile)
   const imgUrl = await res.data.data.display_url
-  const product_ = new Product(id, name, description, age, false, 0, Number(price), true, Number(stock), brand, category, subcategory, ownerName, ownerId, imgUrl)
+  const product_ = new Product(id, name, description, age, false, 0, Number(price), true, Number(stock), brand, category, subcategory, ownerName, ownerId, ownerAvatar, imgUrl)
   product_.details = rest
   console.log(product_);
 

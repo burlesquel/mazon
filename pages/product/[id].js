@@ -24,27 +24,27 @@ export default function Product({ product }) {
   const newConversation = (message) => {
     const starterID = context.user.id
     const starterName = context.user.user_metadata.full_name
+    const starterAvatar = context.user.avatar
     const targetUserID = product.owner.id
     const targetUserName = product.owner.name
-    const firstMessage = new Message(starterID, starterName, targetUserID, targetUserName, Date.now(), message, product, null) // THE ONE WHO CREATES THE CONVO IS ALSO THE FIRST SENDER OF THE FIRST MESSAGE
+    const receiverAvatar = product.owner.avatar
+    const firstMessage = new Message(starterID, starterName, targetUserID, targetUserName, Date.now(), message, product, starterAvatar ) // THE ONE WHO CREATES THE CONVO IS ALSO THE FIRST SENDER OF THE FIRST MESSAGE
     // context.user.socket.emit("message",message)
     console.log("Starter: ", starterID, ",", "Target User: ", targetUserID);
-    const conversation = new Conversation(starterID, starterName, targetUserID, targetUserName)
+    const conversation = new Conversation(starterID, starterName, targetUserID, targetUserName, starterAvatar, receiverAvatar)
     conversation.messages.push(firstMessage)
     context.user.socket.emit("new conversation to server", conversation)
 
   }
 
-  const messageSubmitHandler = (event) =>{
+  const messageSubmitHandler = (event) => {
     event.preventDefault()
+    const { messageBox } = event.target
+    const message = messageBox.value
+    event.target.messageBox.value = ""
+    newConversation(message)
 
 
-      const {messageBox} = event.target
-      const message = messageBox.value
-      event.target.messageBox.value = ""
-      newConversation(message)
-
-    
   }
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export default function Product({ product }) {
       {messagePopup &&
         <div className={styles.popupMainContainer}>
           <div className={styles.popupContainer}>
-                                                               {/* CLOSE BUTTON */}
+            {/* CLOSE BUTTON */}
             <h4 onClick={() => { setMessagePopup(false) }} className={styles.crossButton}><IoCloseCircleSharp /></h4>
 
             <h4>New message to: <strong>{product.owner.name}</strong> </h4>
@@ -103,6 +103,7 @@ export default function Product({ product }) {
               <div className={styles.userInfo}>
 
                 <h5>{product.owner.name}</h5>
+                <div className={styles.avatarContainer}><Image src={product.owner.avatar} width={100} height={100} objectFit="contain"/></div>
                 <h8><IoPersonCircleSharp /><strong> x </strong> years user</h8>
                 <h8> <IoCheckmarkDoneSharp /> Email confirmed</h8>
                 <h8> <IoCheckmarkDoneSharp /> Phone confirmed</h8>
@@ -110,15 +111,15 @@ export default function Product({ product }) {
 
               </div>
 
-              <div onClick={() => { 
-                    if(product.owner.id === context.user.id){
-                      alert("You cannot send message to yourself")
-                    }
-                    else{
-                      setMessagePopup(true) 
-                    }
-                
-                }} className={styles.sendMessageContainer}>
+              <div onClick={() => {
+                if (product.owner.id === context.user.id) {
+                  alert("You cannot send message to yourself")
+                }
+                else {
+                  setMessagePopup(true)
+                }
+
+              }} className={styles.sendMessageContainer}>
                 <IoMail /> Send message
               </div>
 

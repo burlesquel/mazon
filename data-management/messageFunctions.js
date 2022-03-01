@@ -13,12 +13,13 @@ class Message {
 class Conversation {
     constructor(starterID, starterName, receiverID, receiverName, starterAvatar, receiverAvatar) {
         this.people = {
-            starter: { id: starterID, name: starterName, avatar: null },
-            receiver: { id: receiverID, name: receiverName, avatar: null }
+            starter: { id: starterID, name: starterName, starterAvatar: starterAvatar },
+            receiver: { id: receiverID, name: receiverName, receiverAvatar: receiverAvatar }
         }
         this.id = String(String(starterID) + String(receiverID))
         this.between = [starterID, receiverID]
         this.messages = [] // FULL OF MESSAGE OBJECTS
+
     }
 }
 
