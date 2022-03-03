@@ -14,15 +14,15 @@
 .conversationsMainContainer{
     display: flex;
     border-right: 1px solid rgb(228, 228, 206);
-    flex: 1;
-    width: 100%;
+    width: 16vw;
+
 }
 
 .mainChatContainer{
-    flex:5;
+    width:84vw;
     overflow:hidden;
     scrollbar-width: 0;
-    width: 100%;
+
 }
 
 .mainChatContainer > div{
@@ -55,24 +55,40 @@
 }
 
 .eachMessageSelf{
-    padding-right: 1rem;
+    background-color: hsl(51, 100%, 86%);
 }
 
 .eachMessageOpposite{
-    padding-left: 1rem;
+    background-color: #fff;
 }
 
 .eachMessageSelf , .eachMessageOpposite{
-    font-size: 1.2rem;
-    padding: 0.5rem;
+    font-size: .94rem;
     border: 1px solid rgb(228, 228, 206);
-    
-    background-color: #fff;
-    position: relative;
+    white-space: initial;
+    word-wrap:break-word;
+    word-break: break-all;
+    white-space: normal;
+    vertical-align:middle;
+    display: flex;
+    padding-top: .6rem;
+    padding-bottom: .6rem;
+
 }
 
-.messageAvatar{
-    margin-left: 0.6rem;
+.avatarDiv{
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: .8rem;
+    padding-left: 0.3rem;
+}
+
+.avatarImg{
+    border-radius: 1rem;
+    
 }
 
 .inputBox{

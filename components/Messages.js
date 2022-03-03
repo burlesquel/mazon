@@ -10,8 +10,8 @@ const EachMessage = ({ message, context }) => {
   if (message.sender.id === context.user.id) {
     return (
       <div className={styles.eachMessageSelf} key={key}> 
-        <Image  src={message.avatar} width={30} height={30}  />
-        <span className={styles.messageAvatar}>{message.content}</span>
+        <div className={styles.avatarDiv}><Image className={styles.avatarImg} src={message.avatar} width={30} height={30}  /></div>
+        <div><span className={styles.messageSpan}>{message.content}</span></div>
         
       </div>
     )
@@ -19,8 +19,8 @@ const EachMessage = ({ message, context }) => {
   else {
     return (
       <div className={styles.eachMessageOpposite} key={key}>
-        <Image  src={message.avatar} width={30} height={30}  />
-        <span className={styles.messageAvatar}>{message.content}</span>
+        <div className={styles.avatarDiv}><Image className={styles.avatarImg} src={message.avatar} width={30} height={30} /></div>
+        <div className={styles.messageTextDiv}><span className={styles.messageSpan}>{message.content}</span></div>
       </div>
     )
   }
